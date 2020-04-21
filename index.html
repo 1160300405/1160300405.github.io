@@ -163,6 +163,150 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PTA1115" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/22/PTA1115/">PTA1115</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/22/PTA1115/" class="archive-article-date">
+  	<time datetime="2020-04-21T16:04:38.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PTA1115：顺序逐个节点构建BST"><a href="#PTA1115：顺序逐个节点构建BST" class="headerlink" title="PTA1115：顺序逐个节点构建BST"></a>PTA1115：顺序逐个节点构建BST</h1><h2 id="题目及测试样例"><a href="#题目及测试样例" class="headerlink" title="题目及测试样例"></a>题目及测试样例</h2><ul>
+<li>题目<br><img src="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="题目"></li>
+<li>测试样例<br><img src="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="测试样例"><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2>定义全局变量:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; num(<span class="number">1000</span>);<span class="comment">//统计每一层节点个数的向量，下标为层数，值为这一层节点个数</span></span><br><span class="line">int maxdepth = <span class="number">0</span>;<span class="comment">//最后BST树的深度（最大深度）</span></span><br></pre></td></tr></table></figure>
+由于要求BST深度，故必定要建立BST树，故首先定义树中节点：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">    int v;</span><br><span class="line">    node *left=NULL, *right=NULL;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+根据顺序输入节点，建树函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node* build(node *root, int v) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == NULL) &#123;</span><br><span class="line">        root = <span class="keyword">new</span> node();<span class="comment">//新建一个结构体的new方法，返回的是此新建结构体对象的指针</span></span><br><span class="line">        root-&gt;v = v;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(v &lt;= root-&gt;v)</span><br><span class="line">        root-&gt;left = build(root-&gt;left, v);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        root-&gt;right = build(root-&gt;right, v);</span><br><span class="line">     <span class="comment">//递归建立BST</span></span><br><span class="line">    <span class="keyword">return</span> root;<span class="comment">//最后返回当前根节点，自然最外层递归返回的就是最初始的根节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+由dfs得到树的最大深度以及每个节点深度的函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> dfs(node *root, int depth) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == NULL) &#123;</span><br><span class="line">        maxdepth = max(depth, maxdepth);</span><br><span class="line">       <span class="comment">//由于递归到了叶子节点，故需要更新一下树的最大深度</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    num[depth]++;<span class="comment">//由于root == NULL不成立，说明当前节点存在，即当前节点深度节点个数，需要加上当前一个节点</span></span><br><span class="line">    dfs(root-&gt;left, depth + <span class="number">1</span>);</span><br><span class="line">    dfs(root-&gt;right, depth + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//分别左右子树进行递归求深度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+主函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    int n, t;</span><br><span class="line">    scanf(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    node *root = NULL;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">        root = build(root, t);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root, <span class="number">0</span>);</span><br><span class="line">    printf(<span class="string">"%d + %d = %d"</span>, num[maxdepth<span class="number">-1</span>], num[maxdepth<span class="number">-2</span>], num[maxdepth<span class="number">-1</span>]+num[maxdepth<span class="number">-2</span>]);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>重点理解递归建立BST过程逻辑，以及深搜求深度逻辑</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/22/PTA1115/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PTA1138" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/21/PTA1138/">PTA1138</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/21/PTA1138/" class="archive-article-date">
+  	<time datetime="2020-04-21T15:50:21.695Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PTA1138-已知二叉树前序中序，求后序"><a href="#PTA1138-已知二叉树前序中序，求后序" class="headerlink" title="PTA1138:已知二叉树前序中序，求后序"></a>PTA1138:已知二叉树前序中序，求后序</h1><h2 id="题目以及测试样例"><a href="#题目以及测试样例" class="headerlink" title="题目以及测试样例"></a>题目以及测试样例</h2><ul>
+<li>题目<br><img src="https://img-blog.csdnimg.cn/20200421234140168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="题目"></li>
+<li>测试样例<br><img src="https://img-blog.csdnimg.cn/20200421234154551.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="测试样例"><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2>首先定义以下全局变量：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int N;<span class="comment">//树中节点个数</span></span><br><span class="line">vector&lt;int&gt; pre;<span class="comment">//存储前序序列</span></span><br><span class="line">vector&lt;int&gt; <span class="keyword">in</span>;<span class="comment">//存储中序序列</span></span><br><span class="line">bool flag=<span class="literal">false</span>;<span class="comment">//由于题目只需要输出后序第一个数，故设置一个标志位，加快递归结束</span></span><br></pre></td></tr></table></figure>
+后序遍历函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> postsearch(int prel,int inl,int inr)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(inl&gt;inr||flag==<span class="literal">true</span>) <span class="keyword">return</span>;<span class="comment">//flag加快进程，为true即表示已经输出了后序中的第一个节点</span></span><br><span class="line">	int i;</span><br><span class="line">	<span class="keyword">for</span>(i=inl;i&lt;=inr;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">in</span>[i]==pre[prel]) &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">	&#125;	<span class="comment">//找子树根节点</span></span><br><span class="line"></span><br><span class="line">	postsearch(prel+<span class="number">1</span>,inl,i<span class="number">-1</span>);</span><br><span class="line">	postsearch(prel+i-inl+<span class="number">1</span>,i+<span class="number">1</span>,inr);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(flag==<span class="literal">false</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		flag=<span class="literal">true</span>;</span><br><span class="line">		printf(<span class="string">"%d"</span>, pre[prel]);</span><br><span class="line">	&#125;<span class="comment">//放到递归最后即是后序</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  最后一个if语句，放在postsearch递归函数最后（即已经遍历完了左子树和右子树，在第三次经过节点时再输出）这就是后序遍历的输出顺序，如果放在postsearch递归函数中间则为中序遍历，同理放在开头即是前序遍历<br>最后主函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) </span><br><span class="line">&#123;</span><br><span class="line">	scanf(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int a;</span><br><span class="line">		scanf(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		pre.push_back(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int a;</span><br><span class="line">		scanf(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		<span class="keyword">in</span>.push_back(a);</span><br><span class="line">	&#125;</span><br><span class="line">	postsearch(<span class="number">0</span>,<span class="number">0</span>,N<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>重点理解后序遍历递归函数的逻辑</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/21/PTA1138/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PTA1127：树（已知中后序，建树，求变种层序）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

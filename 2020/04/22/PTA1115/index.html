@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Kris Hao的博客</title>
+  <title>PTA1115 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kris Hao的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="PTA1115：顺序逐个节点构建BST题目及测试样例 题目 测试样例解题思路定义全局变量:12vector&lt;int&gt; num(1000);&#x2F;&#x2F;统计每一层节点个数的向量，下标为层数，值为这一层节点个数int maxdepth &#x3D; 0;&#x2F;&#x2F;最后BST树的深度（最大深度） 由于要求BST深度，故必定要建立BST树，故首先定义树中节点：1234struct node &amp;#123;    int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PTA1115">
+<meta property="og:url" content="http://yoursite.com/2020/04/22/PTA1115/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="PTA1115：顺序逐个节点构建BST题目及测试样例 题目 测试样例解题思路定义全局变量:12vector&lt;int&gt; num(1000);&#x2F;&#x2F;统计每一层节点个数的向量，下标为层数，值为这一层节点个数int maxdepth &#x3D; 0;&#x2F;&#x2F;最后BST树的深度（最大深度） 由于要求BST深度，故必定要建立BST树，故首先定义树中节点：1234struct node &amp;#123;    int">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-04-21T16:04:38.379Z">
+<meta property="article:modified_time" content="2020-04-21T16:04:38.379Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="技术记录">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -161,184 +166,145 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-PTA1115" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      PTA1115
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/22/PTA1115/" class="archive-article-date">
+
+        
+        <a href="/2020/04/22/PTA1115/" class="archive-article-date">
   	<time datetime="2020-04-21T16:04:38.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/22/PTA1115/">PTA1115</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PTA1115：顺序逐个节点构建BST"><a href="#PTA1115：顺序逐个节点构建BST" class="headerlink" title="PTA1115：顺序逐个节点构建BST"></a>PTA1115：顺序逐个节点构建BST</h1><h2 id="题目及测试样例"><a href="#题目及测试样例" class="headerlink" title="题目及测试样例"></a>题目及测试样例</h2><ul>
+<li>题目<br><img src="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="题目"></li>
+<li>测试样例<br><img src="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="测试样例"><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2>定义全局变量:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; num(<span class="number">1000</span>);<span class="comment">//统计每一层节点个数的向量，下标为层数，值为这一层节点个数</span></span><br><span class="line">int maxdepth = <span class="number">0</span>;<span class="comment">//最后BST树的深度（最大深度）</span></span><br></pre></td></tr></table></figure>
+由于要求BST深度，故必定要建立BST树，故首先定义树中节点：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">    int v;</span><br><span class="line">    node *left=NULL, *right=NULL;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+根据顺序输入节点，建树函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node* build(node *root, int v) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == NULL) &#123;</span><br><span class="line">        root = <span class="keyword">new</span> node();<span class="comment">//新建一个结构体的new方法，返回的是此新建结构体对象的指针</span></span><br><span class="line">        root-&gt;v = v;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(v &lt;= root-&gt;v)</span><br><span class="line">        root-&gt;left = build(root-&gt;left, v);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        root-&gt;right = build(root-&gt;right, v);</span><br><span class="line">     <span class="comment">//递归建立BST</span></span><br><span class="line">    <span class="keyword">return</span> root;<span class="comment">//最后返回当前根节点，自然最外层递归返回的就是最初始的根节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+由dfs得到树的最大深度以及每个节点深度的函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> dfs(node *root, int depth) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == NULL) &#123;</span><br><span class="line">        maxdepth = max(depth, maxdepth);</span><br><span class="line">       <span class="comment">//由于递归到了叶子节点，故需要更新一下树的最大深度</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    num[depth]++;<span class="comment">//由于root == NULL不成立，说明当前节点存在，即当前节点深度节点个数，需要加上当前一个节点</span></span><br><span class="line">    dfs(root-&gt;left, depth + <span class="number">1</span>);</span><br><span class="line">    dfs(root-&gt;right, depth + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//分别左右子树进行递归求深度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+主函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    int n, t;</span><br><span class="line">    scanf(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    node *root = NULL;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">        root = build(root, t);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root, <span class="number">0</span>);</span><br><span class="line">    printf(<span class="string">"%d + %d = %d"</span>, num[maxdepth<span class="number">-1</span>], num[maxdepth<span class="number">-2</span>], num[maxdepth<span class="number">-1</span>]+num[maxdepth<span class="number">-2</span>]);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>重点理解递归建立BST过程逻辑，以及深搜求深度逻辑</p>
 
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/22/PTA1115/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/21/PTA1138/" class="archive-article-date">
-  	<time datetime="2020-04-21T15:50:21.695Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/21/PTA1138/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PTA1138</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/21/PTA1138/">PTA1138</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/21/PTA1127%EF%BC%9A%E6%A0%91%EF%BC%88%E5%B7%B2%E7%9F%A5%E4%B8%AD%E5%90%8E%E5%BA%8F%EF%BC%8C%E5%BB%BA%E6%A0%91%EF%BC%8C%E6%B1%82%E5%8F%98%E7%A7%8D%E5%B1%82%E5%BA%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-21T15:16:19.023Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/21/PTA1127%EF%BC%9A%E6%A0%91%EF%BC%88%E5%B7%B2%E7%9F%A5%E4%B8%AD%E5%90%8E%E5%BA%8F%EF%BC%8C%E5%BB%BA%E6%A0%91%EF%BC%8C%E6%B1%82%E5%8F%98%E7%A7%8D%E5%B1%82%E5%BA%8F%EF%BC%89/">PTA1127：树（已知中后序，建树，求变种层序）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/20/PTA1043%EF%BC%9ABST%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88%E5%B7%B2%E7%9F%A5%E5%85%88%E4%B8%AD%EF%BC%8C%E6%B1%82%E5%90%8E%E5%BA%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-20T14:33:16.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/20/PTA1043%EF%BC%9ABST%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88%E5%B7%B2%E7%9F%A5%E5%85%88%E4%B8%AD%EF%BC%8C%E6%B1%82%E5%90%8E%E5%BA%8F%EF%BC%89/">PTA1043：BST算法题（已知先中，求后序）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/C++%E5%88%B7%E9%A2%98%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-17T06:59:33.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/C++%E5%88%B7%E9%A2%98%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93/">C++常用库函数的总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/16/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-16T14:46:05.691Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/16/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -361,8 +327,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
