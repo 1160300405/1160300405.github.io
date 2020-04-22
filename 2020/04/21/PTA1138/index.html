@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PTA1138:已知二叉树前序中序，求后序 | Kris Hao的博客</title>
+  <title>PTA1138:二叉树 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目以及测试样例">
+  <meta name="description" content="二叉树已知二叉树前序中序，求后序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTA1138:已知二叉树前序中序，求后序">
+<meta property="og:title" content="PTA1138:二叉树">
 <meta property="og:url" content="http://yoursite.com/2020/04/21/PTA1138/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="题目以及测试样例">
+<meta property="og:description" content="二叉树已知二叉树前序中序，求后序">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200421234140168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200421234154551.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-04-21T15:50:21.695Z">
-<meta property="article:modified_time" content="2020-04-22T11:10:14.694Z">
+<meta property="article:modified_time" content="2020-04-22T11:21:00.660Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="技术记录">
 <meta name="twitter:card" content="summary">
@@ -33,7 +33,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -65,10 +65,15 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/archives/index.html">随笔</a></li>
 	        
 			</ul>
 		</nav>
+
+		<nav>
+			<a>总文章数 6</a>
+		</nav>
+		
 		<nav class="header-smart-menu">
     		
     			
@@ -151,7 +156,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="/archives/index.html">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PTA1138:已知二叉树前序中序，求后序
+      PTA1138:二叉树
     </h1>
   
 
@@ -186,8 +191,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目以及测试样例"><a href="#题目以及测试样例" class="headerlink" title="题目以及测试样例"></a>题目以及测试样例</h2><a id="more"></a>
-<ul>
+        <h1 id="二叉树已知二叉树前序中序，求后序"><a href="#二叉树已知二叉树前序中序，求后序" class="headerlink" title="二叉树已知二叉树前序中序，求后序"></a>二叉树已知二叉树前序中序，求后序</h1><a id="more"></a>
+<h2 id="题目以及测试样例"><a href="#题目以及测试样例" class="headerlink" title="题目以及测试样例"></a>题目以及测试样例</h2><ul>
 <li>题目<br><img src="https://img-blog.csdnimg.cn/20200421234140168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="题目"></li>
 <li>测试样例<br><img src="https://img-blog.csdnimg.cn/20200421234154551.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="测试样例"><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2>首先定义以下全局变量：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int N;<span class="comment">//树中节点个数</span></span><br><span class="line">vector&lt;int&gt; pre;<span class="comment">//存储前序序列</span></span><br><span class="line">vector&lt;int&gt; <span class="keyword">in</span>;<span class="comment">//存储中序序列</span></span><br><span class="line">bool flag=<span class="literal">false</span>;<span class="comment">//由于题目只需要输出后序第一个数，故设置一个标志位，加快递归结束</span></span><br></pre></td></tr></table></figure>
 后序遍历函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> postsearch(int prel,int inl,int inr)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(inl&gt;inr||flag==<span class="literal">true</span>) <span class="keyword">return</span>;<span class="comment">//flag加快进程，为true即表示已经输出了后序中的第一个节点</span></span><br><span class="line">	int i;</span><br><span class="line">	<span class="keyword">for</span>(i=inl;i&lt;=inr;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">in</span>[i]==pre[prel]) &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">	&#125;	<span class="comment">//找子树根节点</span></span><br><span class="line"></span><br><span class="line">	postsearch(prel+<span class="number">1</span>,inl,i<span class="number">-1</span>);</span><br><span class="line">	postsearch(prel+i-inl+<span class="number">1</span>,i+<span class="number">1</span>,inr);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(flag==<span class="literal">false</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		flag=<span class="literal">true</span>;</span><br><span class="line">		printf(<span class="string">"%d"</span>, pre[prel]);</span><br><span class="line">	&#125;<span class="comment">//放到递归最后即是后序</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -272,14 +277,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          PTA1115：顺序逐个节点构建BST
+          PTA1115：BST
         
       </div>
     </a>
   
   
     <a href="/2020/04/21/PTA1127%EF%BC%9A%E6%A0%91%EF%BC%88%E5%B7%B2%E7%9F%A5%E4%B8%AD%E5%90%8E%E5%BA%8F%EF%BC%8C%E5%BB%BA%E6%A0%91%EF%BC%8C%E6%B1%82%E5%8F%98%E7%A7%8D%E5%B1%82%E5%BA%8F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PTA1127：树（已知中后序，建树，求变种层序）</div>
+      <div class="article-nav-title">PTA1127：二叉树</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -298,6 +303,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉树已知二叉树前序中序，求后序"><span class="toc-number">1.</span> <span class="toc-text">二叉树已知二叉树前序中序，求后序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目以及测试样例"><span class="toc-number">1.1.</span> <span class="toc-text">题目以及测试样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -325,11 +343,14 @@
     		&copy; 2020 Kris Hao
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+          <span id="busuanzi_container_site_pv"> 本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+          <span id="busuanzi_container_site_uv"> 本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
       	</div>
     </div>
   </div>
 </footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
     </div>
     <script>
 	var yiliaConfig = {
