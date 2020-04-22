@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PTA1115 | Kris Hao的博客</title>
+  <title>PTA1115：顺序逐个节点构建BST | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PTA1115：顺序逐个节点构建BST题目及测试样例 题目 测试样例解题思路定义全局变量:12vector&lt;int&gt; num(1000);&#x2F;&#x2F;统计每一层节点个数的向量，下标为层数，值为这一层节点个数int maxdepth &#x3D; 0;&#x2F;&#x2F;最后BST树的深度（最大深度） 由于要求BST深度，故必定要建立BST树，故首先定义树中节点：1234struct node &amp;#123;    int">
+  <meta name="description" content="题目及测试样例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTA1115">
+<meta property="og:title" content="PTA1115：顺序逐个节点构建BST">
 <meta property="og:url" content="http://yoursite.com/2020/04/22/PTA1115/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="PTA1115：顺序逐个节点构建BST题目及测试样例 题目 测试样例解题思路定义全局变量:12vector&lt;int&gt; num(1000);&#x2F;&#x2F;统计每一层节点个数的向量，下标为层数，值为这一层节点个数int maxdepth &#x3D; 0;&#x2F;&#x2F;最后BST树的深度（最大深度） 由于要求BST深度，故必定要建立BST树，故首先定义树中节点：1234struct node &amp;#123;    int">
+<meta property="og:description" content="题目及测试样例">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-04-21T16:04:38.379Z">
-<meta property="article:modified_time" content="2020-04-21T16:04:38.379Z">
+<meta property="article:modified_time" content="2020-04-22T11:09:57.192Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="技术记录">
 <meta name="twitter:card" content="summary">
@@ -173,7 +173,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PTA1115
+      PTA1115：顺序逐个节点构建BST
     </h1>
   
 
@@ -186,7 +186,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PTA1115：顺序逐个节点构建BST"><a href="#PTA1115：顺序逐个节点构建BST" class="headerlink" title="PTA1115：顺序逐个节点构建BST"></a>PTA1115：顺序逐个节点构建BST</h1><h2 id="题目及测试样例"><a href="#题目及测试样例" class="headerlink" title="题目及测试样例"></a>题目及测试样例</h2><ul>
+        <h2 id="题目及测试样例"><a href="#题目及测试样例" class="headerlink" title="题目及测试样例"></a>题目及测试样例</h2><a id="more"></a>
+<ul>
 <li>题目<br><img src="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="题目"></li>
 <li>测试样例<br><img src="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="测试样例"><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2>定义全局变量:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; num(<span class="number">1000</span>);<span class="comment">//统计每一层节点个数的向量，下标为层数，值为这一层节点个数</span></span><br><span class="line">int maxdepth = <span class="number">0</span>;<span class="comment">//最后BST树的深度（最大深度）</span></span><br></pre></td></tr></table></figure>
 由于要求BST深度，故必定要建立BST树，故首先定义树中节点：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">    int v;</span><br><span class="line">    node *left=NULL, *right=NULL;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -271,7 +272,7 @@
   
   
     <a href="/2020/04/21/PTA1138/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PTA1138</div>
+      <div class="article-nav-title">PTA1138:已知二叉树前序中序，求后序</div>
       <i class="icon-circle-right"></i>
     </a>
   
