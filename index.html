@@ -166,6 +166,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-最短路径问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/06/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">最短路径问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/06/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-05-06T11:55:09.875Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
+</a>
+        
+        
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="算法笔记-最短路径问题"><a href="#算法笔记-最短路径问题" class="headerlink" title="算法笔记-最短路径问题"></a>算法笔记-最短路径问题</h1><ul>
+<li>在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径</li>
+<li>单源最短路径问题：只有一个源点（起点）</li>
+<li>多源最短路径问题：求任意两顶点间的最短路径</li>
+</ul>
+<h2 id="单源最短路径算法"><a href="#单源最短路径算法" class="headerlink" title="单源最短路径算法"></a>单源最短路径算法</h2><h3 id="无权图的单源最短路算法"><a href="#无权图的单源最短路算法" class="headerlink" title="无权图的单源最短路算法"></a>无权图的单源最短路算法</h3><ul>
+<li>核心思想是按照递增的顺序找出各个顶点的最短路<br>伪代码概述以及复杂度分析<br><img src="https://img-blog.csdnimg.cn/20200506174307852.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>实际算法操作过程演示<br><img src="https://img-blog.csdnimg.cn/20200506175106625.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"><a href="#有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）" class="headerlink" title="有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"></a>有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）</h3>下面即图中有负边的情况，是不能够使用Dijkstra算法的<br><img src="https://img-blog.csdnimg.cn/20200506181043546.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法思路<br><img src="https://img-blog.csdnimg.cn/20200506181140635.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法代码<br><img src="https://img-blog.csdnimg.cn/20200506181153273.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法演示<br><img src="https://img-blog.csdnimg.cn/20200506182117744.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="多源最短路算法"><a href="#多源最短路算法" class="headerlink" title="多源最短路算法"></a>多源最短路算法</h2><h3 id="Floyd算法-也不适用于图中有负边，即有负值圈的情况"><a href="#Floyd算法-也不适用于图中有负边，即有负值圈的情况" class="headerlink" title="Floyd算法(也不适用于图中有负边，即有负值圈的情况)"></a>Floyd算法(也不适用于图中有负边，即有负值圈的情况)</h3><img src="https://img-blog.csdnimg.cn/20200506182640657.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>用数组初始话时，没有边的两个顶点之间的距离初始化为正无穷，dis[i][i]也为<strong>正无穷</strong>，初始化无向图权重过程中应该是<strong>D[i][j]=D[j][i]=G[i][j]</strong>，初始化过程如下图<br><img src="https://img-blog.csdnimg.cn/20200506184631148.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="问题实战演练-旅游规划"><a href="#问题实战演练-旅游规划" class="headerlink" title="问题实战演练-旅游规划"></a>问题实战演练-旅游规划</h2><h3 id="题意理解"><a href="#题意理解" class="headerlink" title="题意理解"></a>题意理解</h3><p><img src="https://img-blog.csdnimg.cn/20200506195419310.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p><img src="https://img-blog.csdnimg.cn/20200506195425320.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>主要不一样的地方就是，在考虑距离的同时，还要在距离相同时，优先考虑cost比较小的</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/06/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-拓扑排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -313,94 +389,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/06/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法之最短路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/06/%E7%AE%97%E6%B3%95%E4%B9%8B%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">最短路径</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/06/%E7%AE%97%E6%B3%95%E4%B9%8B%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" class="archive-article-date">
-  	<time datetime="2020-05-06T10:46:44.228Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        
-        
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="算法笔记-最短路径问题"><a href="#算法笔记-最短路径问题" class="headerlink" title="算法笔记-最短路径问题"></a>算法笔记-最短路径问题</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">最短路径</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/06/%E7%AE%97%E6%B3%95%E4%B9%8B%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">展开全文 >></a>
         </p>
       
 
@@ -1070,11 +1058,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
+                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
+                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1087,10 +1075,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
             
             <div class="clearfix"></div>
