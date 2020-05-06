@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>最短路径问题 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法笔记-最短路径问题 在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径 单源最短路径问题：只有一个源点（起点） 多源最短路径问题：求任意两顶点间的最短路径  单源最短路径算法无权图的单源最短路算法 核心思想是按照递增的顺序找出各个顶点的最短路伪代码概述以及复杂度分析实际算法操作过程演示有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）下面即图中有负边的情">
+  <meta name="description" content="算法笔记-最短路径问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最短路径问题">
 <meta property="og:url" content="http://yoursite.com/2020/05/06/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="算法笔记-最短路径问题 在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径 单源最短路径问题：只有一个源点（起点） 多源最短路径问题：求任意两顶点间的最短路径  单源最短路径算法无权图的单源最短路算法 核心思想是按照递增的顺序找出各个顶点的最短路伪代码概述以及复杂度分析实际算法操作过程演示有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）下面即图中有负边的情">
+<meta property="og:description" content="算法笔记-最短路径问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506174307852.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506175106625.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
@@ -25,10 +25,11 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506184631148.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506195419310.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506195425320.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-06T11:55:09.875Z">
-<meta property="article:modified_time" content="2020-05-06T11:55:09.875Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200506200602130.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-06T12:09:04.579Z">
+<meta property="article:modified_time" content="2020-05-06T12:10:47.338Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="技术记录">
+<meta property="article:tag" content="最短路径">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200506174307852.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
@@ -190,7 +191,7 @@
 
         
         <a href="/2020/05/06/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-06T11:55:09.875Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
+  	<time datetime="2020-05-06T12:09:04.579Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
         
         
@@ -204,7 +205,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="算法笔记-最短路径问题"><a href="#算法笔记-最短路径问题" class="headerlink" title="算法笔记-最短路径问题"></a>算法笔记-最短路径问题</h1><ul>
+        <h1 id="算法笔记-最短路径问题"><a href="#算法笔记-最短路径问题" class="headerlink" title="算法笔记-最短路径问题"></a>算法笔记-最短路径问题</h1><a id="more"></a>
+<ul>
 <li>在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径</li>
 <li>单源最短路径问题：只有一个源点（起点）</li>
 <li>多源最短路径问题：求任意两顶点间的最短路径</li>
@@ -215,6 +217,7 @@
 </ul>
 <h2 id="问题实战演练-旅游规划"><a href="#问题实战演练-旅游规划" class="headerlink" title="问题实战演练-旅游规划"></a>问题实战演练-旅游规划</h2><h3 id="题意理解"><a href="#题意理解" class="headerlink" title="题意理解"></a>题意理解</h3><p><img src="https://img-blog.csdnimg.cn/20200506195419310.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p><img src="https://img-blog.csdnimg.cn/20200506195425320.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>主要不一样的地方就是，在考虑距离的同时，还要在距离相同时，优先考虑cost比较小的</p>
+<h3 id="其他类似问题"><a href="#其他类似问题" class="headerlink" title="其他类似问题"></a>其他类似问题</h3><p><img src="https://img-blog.csdnimg.cn/20200506200602130.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
 
@@ -223,7 +226,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">最短路径</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -316,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-最短路径问题"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-最短路径问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单源最短路径算法"><span class="toc-number">1.1.</span> <span class="toc-text">单源最短路径算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无权图的单源最短路算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">无权图的单源最短路算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"><span class="toc-number">1.1.2.</span> <span class="toc-text">有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多源最短路算法"><span class="toc-number">1.2.</span> <span class="toc-text">多源最短路算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Floyd算法-也不适用于图中有负边，即有负值圈的情况"><span class="toc-number">1.2.1.</span> <span class="toc-text">Floyd算法(也不适用于图中有负边，即有负值圈的情况)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题实战演练-旅游规划"><span class="toc-number">1.3.</span> <span class="toc-text">问题实战演练-旅游规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意理解"><span class="toc-number">1.3.1.</span> <span class="toc-text">题意理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心算法"><span class="toc-number">1.3.2.</span> <span class="toc-text">核心算法</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-最短路径问题"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-最短路径问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单源最短路径算法"><span class="toc-number">1.1.</span> <span class="toc-text">单源最短路径算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无权图的单源最短路算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">无权图的单源最短路算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"><span class="toc-number">1.1.2.</span> <span class="toc-text">有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多源最短路算法"><span class="toc-number">1.2.</span> <span class="toc-text">多源最短路算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Floyd算法-也不适用于图中有负边，即有负值圈的情况"><span class="toc-number">1.2.1.</span> <span class="toc-text">Floyd算法(也不适用于图中有负边，即有负值圈的情况)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题实战演练-旅游规划"><span class="toc-number">1.3.</span> <span class="toc-text">问题实战演练-旅游规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意理解"><span class="toc-number">1.3.1.</span> <span class="toc-text">题意理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心算法"><span class="toc-number">1.3.2.</span> <span class="toc-text">核心算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他类似问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">其他类似问题</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -447,6 +472,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
             
             <div class="clearfix"></div>
