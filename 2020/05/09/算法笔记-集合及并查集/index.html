@@ -30,8 +30,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215150423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215156898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020050921521517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200513201811968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200513201852449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-09T13:52:32.379Z">
-<meta property="article:modified_time" content="2020-05-09T13:53:34.566Z">
+<meta property="article:modified_time" content="2020-05-13T12:25:28.281Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="集合及并查集">
 <meta name="twitter:card" content="summary">
@@ -223,7 +225,11 @@
 <p><img src="https://img-blog.csdnimg.cn/20200509215150423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/20200509215156898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）"><a href="#路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）" class="headerlink" title="路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）"></a>路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）</h3><p><img src="https://img-blog.csdnimg.cn/2020050921521517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
+<h2 id="并查集应用实战"><a href="#并查集应用实战" class="headerlink" title="并查集应用实战"></a>并查集应用实战</h2><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p><img src="https://img-blog.csdnimg.cn/20200513201811968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><p><img src="https://img-blog.csdnimg.cn/20200513201852449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;cctype&gt;</span><br><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;ctime&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">#include &lt;list&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">#include &lt;numeric&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int S[<span class="number">10002</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//一定要将初始化的表示并查集的数组中每一个值都初始化为-1，下面算法才有效，下面过程一定要调用</span></span><br><span class="line"><span class="keyword">void</span> Init()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>(int i=<span class="number">0</span>; i&lt;<span class="number">10002</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		S[i]=<span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//采用路径压缩的算法，节省栈空间</span></span><br><span class="line">int Find(int x)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(S[x]&lt;<span class="number">0</span>) <span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> S[x]=Find(S[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果不用上面的路径压缩算法，而用下面的简单算法，会发生段错误，由于堆栈溢出</span></span><br><span class="line"><span class="comment">// int Find(int x)</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">// 	// printf("%d的爸爸是",x);</span></span><br><span class="line"><span class="comment">// 	for(;S[x]&gt;0;x=S[x]);</span></span><br><span class="line"><span class="comment">// 	// printf("%d\n", x);</span></span><br><span class="line"><span class="comment">// 	return x;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Union(int root1, int root2)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(S[root1] &lt; S[root2])<span class="comment">//两个负数值的比较，自然是小的（绝对值大）节点多，树高</span></span><br><span class="line">	&#123;</span><br><span class="line">		S[root1]+=S[root2];</span><br><span class="line">		S[root2]=root1;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">	&#123;</span><br><span class="line">		S[root2]+=S[root1];</span><br><span class="line">		S[root1]=root2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//上面展示了将矮树贴到高树上的过程</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char * argv[]) </span><br><span class="line">&#123;</span><br><span class="line">	Init();</span><br><span class="line">	int n;</span><br><span class="line">	int maxb=<span class="number">0</span>;</span><br><span class="line">	scanf(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="comment">//初始化构建集合</span></span><br><span class="line">	<span class="keyword">for</span>(int i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int before=<span class="number">0</span>;<span class="comment">//记录前一个需要归并的节点</span></span><br><span class="line">		int m;</span><br><span class="line">		scanf(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">		int b;</span><br><span class="line">		<span class="keyword">for</span>(int j=<span class="number">0</span>; j&lt;m; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			scanf(<span class="string">"%d"</span>, &amp;b);</span><br><span class="line">			<span class="keyword">if</span>(b&gt;maxb) maxb=b;<span class="comment">//由于鸟的编号从1开始连续，故最大编号节点就是鸟的个数</span></span><br><span class="line">			<span class="keyword">if</span>(before!=<span class="number">0</span>) Union(Find(before), Find(b));<span class="comment">//合并两棵树，即两根节点合并</span></span><br><span class="line">			before=b; </span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//下面统计树的数量以及鸟的总数量</span></span><br><span class="line">	int cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(int i=<span class="number">1</span>; i&lt;=maxb; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(S[i]&lt;<span class="number">0</span>) cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(<span class="string">"%d %d\n"</span>, cnt, maxb);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//判断依次所输入的二元组中的两只鸟，是否在同一棵树上</span></span><br><span class="line">	int nn;scanf(<span class="string">"%d"</span>,&amp;nn);</span><br><span class="line">	<span class="keyword">for</span>(int i=<span class="number">0</span>; i&lt;nn; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int b1,b2;</span><br><span class="line">		scanf(<span class="string">"%d %d"</span>, &amp;b1, &amp;b2);</span><br><span class="line">		<span class="keyword">if</span>(Find(b1)==Find(b2)) printf(<span class="string">"Yes\n"</span>);</span><br><span class="line">		<span class="keyword">else</span> printf(<span class="string">"No\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>重点要深刻理解并查集中的 路径压缩 以及 按秩归并
+上面代码具体书写两重点的细节一定要熟记，并且一定记得开始的父结点都初始化为-1</code></pre>
       
 
       
@@ -355,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-集合及并查集"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-集合及并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合的表示"><span class="toc-number">1.1.</span> <span class="toc-text">集合的表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合中元素的查找"><span class="toc-number">1.2.</span> <span class="toc-text">集合中元素的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合的并运算"><span class="toc-number">1.3.</span> <span class="toc-text">集合的并运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并查集题目实战"><span class="toc-number">1.4.</span> <span class="toc-text">并查集题目实战</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#集合的简化表示"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">集合的简化表示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思路"><span class="toc-number">1.4.2.</span> <span class="toc-text">算法思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按秩归并（解决上面naive方法的超时问题）：对于Union函数的改进"><span class="toc-number">1.4.3.</span> <span class="toc-text">按秩归并（解决上面naive方法的超时问题）：对于Union函数的改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）"><span class="toc-number">1.4.4.</span> <span class="toc-text">路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-集合及并查集"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-集合及并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合的表示"><span class="toc-number">1.1.</span> <span class="toc-text">集合的表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合中元素的查找"><span class="toc-number">1.2.</span> <span class="toc-text">集合中元素的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合的并运算"><span class="toc-number">1.3.</span> <span class="toc-text">集合的并运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并查集题目实战"><span class="toc-number">1.4.</span> <span class="toc-text">并查集题目实战</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#集合的简化表示"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">集合的简化表示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思路"><span class="toc-number">1.4.2.</span> <span class="toc-text">算法思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按秩归并（解决上面naive方法的超时问题）：对于Union函数的改进"><span class="toc-number">1.4.3.</span> <span class="toc-text">按秩归并（解决上面naive方法的超时问题）：对于Union函数的改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）"><span class="toc-number">1.4.4.</span> <span class="toc-text">路径压缩：对于Find函数的改进（用伪递归的办法，实际做的循环，防止堆栈爆掉）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并查集应用实战"><span class="toc-number">1.5.</span> <span class="toc-text">并查集应用实战</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题目-1"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入输出样例"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">输入输出样例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法设计"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">算法设计</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -469,11 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
+                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
+                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,11 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">散列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">散列</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,6 +511,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
@@ -513,19 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,11 +531,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">链表</a>
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">集合及并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
             
             <div class="clearfix"></div>
