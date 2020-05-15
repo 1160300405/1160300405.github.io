@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506192941208.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506193418408.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-06T11:35:33.395Z">
-<meta property="article:modified_time" content="2020-05-06T11:38:54.677Z">
+<meta property="article:modified_time" content="2020-05-15T09:29:35.604Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="最小生成树">
 <meta name="twitter:card" content="summary">
@@ -198,8 +198,12 @@
       
         <h1 id="算法笔记-最小生成树问题"><a href="#算法笔记-最小生成树问题" class="headerlink" title="算法笔记-最小生成树问题"></a>算法笔记-最小生成树问题</h1><a id="more"></a>
 <h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><h3 id="Prim算法-让一棵小树长大"><a href="#Prim算法-让一棵小树长大" class="headerlink" title="Prim算法-让一棵小树长大"></a>Prim算法-让一棵小树长大</h3><ul>
-<li>和迪杰特斯拉算法很像，由于考虑顶点适合稠密图，即边多的图<br><img src="https://img-blog.csdnimg.cn/20200506192941208.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="Kruskal算法-将森林合并成树"><a href="#Kruskal算法-将森林合并成树" class="headerlink" title="Kruskal算法-将森林合并成树"></a>Kruskal算法-将森林合并成树</h3></li>
-<li>考虑边，故适合稀疏图<br><img src="https://img-blog.csdnimg.cn/20200506193418408.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><p>和迪杰特斯拉算法很像，由于考虑顶点适合稠密图，即边多的图<br><img src="https://img-blog.csdnimg.cn/20200506192941208.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="Kruskal算法-将森林合并成树"><a href="#Kruskal算法-将森林合并成树" class="headerlink" title="Kruskal算法-将森林合并成树"></a>Kruskal算法-将森林合并成树</h3></li>
+<li><p>考虑边，故适合稀疏图<br><img src="https://img-blog.csdnimg.cn/20200506193418408.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>上面并查集的用法，就是在判断一条E中的边是否会构成回路时，判断边的两个顶点是否属于同一个集合中，即判断两个顶点属于的集合根节点是否相同，相同则代表加入这条边会形成回路</p>
+</li>
 </ul>
 
       
@@ -459,7 +463,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">散列</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,7 +471,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">散列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,15 +479,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,15 +491,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">哈夫曼树和编码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">链表</a>
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+                <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">

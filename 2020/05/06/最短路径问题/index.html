@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506195425320.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200506200602130.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-06T12:09:04.579Z">
-<meta property="article:modified_time" content="2020-05-06T12:10:47.338Z">
+<meta property="article:modified_time" content="2020-05-15T09:15:34.157Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="最短路径">
 <meta name="twitter:card" content="summary">
@@ -212,8 +212,16 @@
 <li>多源最短路径问题：求任意两顶点间的最短路径</li>
 </ul>
 <h2 id="单源最短路径算法"><a href="#单源最短路径算法" class="headerlink" title="单源最短路径算法"></a>单源最短路径算法</h2><h3 id="无权图的单源最短路算法"><a href="#无权图的单源最短路算法" class="headerlink" title="无权图的单源最短路算法"></a>无权图的单源最短路算法</h3><ul>
-<li>核心思想是按照递增的顺序找出各个顶点的最短路<br>伪代码概述以及复杂度分析<br><img src="https://img-blog.csdnimg.cn/20200506174307852.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>实际算法操作过程演示<br><img src="https://img-blog.csdnimg.cn/20200506175106625.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"><a href="#有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）" class="headerlink" title="有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"></a>有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）</h3>下面即图中有负边的情况，是不能够使用Dijkstra算法的<br><img src="https://img-blog.csdnimg.cn/20200506181043546.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法思路<br><img src="https://img-blog.csdnimg.cn/20200506181140635.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法代码<br><img src="https://img-blog.csdnimg.cn/20200506181153273.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法演示<br><img src="https://img-blog.csdnimg.cn/20200506182117744.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="多源最短路算法"><a href="#多源最短路算法" class="headerlink" title="多源最短路算法"></a>多源最短路算法</h2><h3 id="Floyd算法-也不适用于图中有负边，即有负值圈的情况"><a href="#Floyd算法-也不适用于图中有负边，即有负值圈的情况" class="headerlink" title="Floyd算法(也不适用于图中有负边，即有负值圈的情况)"></a>Floyd算法(也不适用于图中有负边，即有负值圈的情况)</h3><img src="https://img-blog.csdnimg.cn/20200506182640657.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>用数组初始话时，没有边的两个顶点之间的距离初始化为正无穷，dis[i][i]也为<strong>正无穷</strong>，初始化无向图权重过程中应该是<strong>D[i][j]=D[j][i]=G[i][j]</strong>，初始化过程如下图<br><img src="https://img-blog.csdnimg.cn/20200506184631148.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><p>核心思想是按照递增的顺序找出各个顶点的最短路<br>伪代码概述以及复杂度分析<br><img src="https://img-blog.csdnimg.cn/20200506174307852.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>实际算法操作过程演示<br><img src="https://img-blog.csdnimg.cn/20200506175106625.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"><a href="#有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）" class="headerlink" title="有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）"></a>有权图的单源最短路算法（Dijkstra算法：不能够解决有负边的情况）</h3><p>下面即图中有负边的情况，是不能够使用Dijkstra算法的<br><img src="https://img-blog.csdnimg.cn/20200506181043546.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法思路<br><img src="https://img-blog.csdnimg.cn/20200506181140635.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法代码<br><img src="https://img-blog.csdnimg.cn/20200506181153273.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>算法演示<br><img src="https://img-blog.csdnimg.cn/20200506182117744.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>注意：开始path全部初始化为-1，同下面的Floyd算法</p>
+</li>
+</ul>
+<h2 id="多源最短路算法"><a href="#多源最短路算法" class="headerlink" title="多源最短路算法"></a>多源最短路算法</h2><h3 id="Floyd算法-也不适用于图中有负边，即有负值圈的情况"><a href="#Floyd算法-也不适用于图中有负边，即有负值圈的情况" class="headerlink" title="Floyd算法(也不适用于图中有负边，即有负值圈的情况)"></a>Floyd算法(也不适用于图中有负边，即有负值圈的情况)</h3><p><img src="https://img-blog.csdnimg.cn/20200506182640657.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>上面的i，j，k三重循环顺序巧记，由于k是更新时的中间结点，i为起点，j为重点，故k变数最大放最外面，其次i，j</li>
+<li>用数组初始化时，没有边的两个顶点之间的距离初始化为正无穷，dis[i][i]也为<strong>正无穷</strong>，初始化无向图权重过程中应该是<strong>D[i][j]=D[j][i]=G[i][j]</strong>，初始化过程如下图<br><img src="https://img-blog.csdnimg.cn/20200506184631148.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
 </ul>
 <h2 id="问题实战演练-旅游规划"><a href="#问题实战演练-旅游规划" class="headerlink" title="问题实战演练-旅游规划"></a>问题实战演练-旅游规划</h2><h3 id="题意理解"><a href="#题意理解" class="headerlink" title="题意理解"></a>题意理解</h3><p><img src="https://img-blog.csdnimg.cn/20200506195419310.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p><img src="https://img-blog.csdnimg.cn/20200506195425320.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>主要不一样的地方就是，在考虑距离的同时，还要在距离相同时，优先考虑cost比较小的</p>
@@ -476,7 +484,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">散列</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,7 +492,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">散列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,15 +500,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,15 +512,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">哈夫曼树和编码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">链表</a>
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +532,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+                <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">
