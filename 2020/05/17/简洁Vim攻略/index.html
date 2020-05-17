@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: 算法学习笔记 | Kris Hao的博客</title>
+  <title>Vim使用攻略 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kris Hao的博客">
-<meta property="og:url" content="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+  <meta name="description" content="Vim攻略（初学友好）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim使用攻略">
+<meta property="og:url" content="http://yoursite.com/2020/05/17/%E7%AE%80%E6%B4%81Vim%E6%94%BB%E7%95%A5/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="Vim攻略（初学友好）">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-17T11:59:38.908Z">
+<meta property="article:modified_time" content="2020-05-17T12:03:29.277Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="技术记录">
+<meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
@@ -164,516 +166,278 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-简洁Vim攻略" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vim使用攻略
+    </h1>
+  
+
+        
+        <a href="/2020/05/17/%E7%AE%80%E6%B4%81Vim%E6%94%BB%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-05-17T11:59:38.908Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
+        
+        
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Vim攻略（初学友好）"><a href="#Vim攻略（初学友好）" class="headerlink" title="Vim攻略（初学友好）"></a>Vim攻略（初学友好）</h1><a id="more"></a>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>vim的学习曲线是非常大的，所以对于初学者来说真的是非常不友好的，让这款编辑器在一开始就劝退了很多人，本文主要列举了一些最常用的指令。<br>学习 vim 并且其会成为你最后一个使用的文本编辑器。没有比这个更好的文本编辑器了，非常地难学，但是却不可思议地好用。本文主要参考 酷壳网<a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">简明 VIM 练级攻略</a>。</p>
+<h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><ul>
+<li><p>启动Vim后，vim在 Normal 模式下。</p>
+</li>
+<li><p>让我们进入 Insert 模式，请按下键 i (注：你会看到vim左下角有一个–insert–字样，表示，你可以以插入的方式输入了）</p>
+</li>
+<li><p>此时，你可以输入文本了，就像你用“记事本”一样。</p>
+</li>
+<li><p>如果你想返回 Normal 模式，请按 ESC 键。<br>下面是一些Normal命令，可以让你在 Normal 模式纵享丝滑。</p>
+<pre><code>i → Insert 模式，按 ESC 回到 Normal 模式.
+
+x → 删当前光标所在的一个字符。
+
+:wq → 存盘 + 退出 (:w 存盘, :q 退出)   
+（注：:w 后可以跟文件名）
+
+dd → 删除当前行，并把删除的行存到剪贴板里
+
+p → 粘贴剪贴板
+
+hjkl (强例推荐使用其移动光标，但不必需) →你也可以使用光标键 (←↓↑→). 注: j 就像下箭头。
+
+:help &lt;command&gt; → 显示相关命令的帮助。你也可以就输入 :help 而不跟命令。（注：退出帮助需要输入:q）</code></pre></li>
+</ul>
+<p><strong>在VIM的Normal模式下，所有的键就是功能键了。</strong></p>
+<p><strong>标记:</strong></p>
+<p>下面的文字中，如果是 Ctrl简写成 C.<br>以冒号（：）开始的命令需要输入回车执行，例如 写成 :q 也就是说你要输入 :q+回车执行此命令</p>
+<h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><p>所有的命令都需要在<strong>Normal</strong>模式下使用，如果你不知道现在在什么样的模式，你就狂按几次<strong>ESC</strong>键</p>
+<h4 id="各种插入功能键"><a href="#各种插入功能键" class="headerlink" title="各种插入功能键"></a>各种插入功能键</h4><pre><code>a → 在光标后插入
+
+o → 在当前行后插入一个新行
+
+0 → 在当前行前插入一个新行
+
+cw → 替换从光标所在位置后到一个单词结尾的字符</code></pre><h4 id="各种移动光标功能键"><a href="#各种移动光标功能键" class="headerlink" title="各种移动光标功能键"></a>各种移动光标功能键</h4><pre><code>0 → 数字零，到行头
+
+^ → 到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等）
+
+$ → 到本行行尾
+
+g_ → 到本行最后一个不是blank字符的位置
+
+/pattern → 搜索 pattern 的字符串（注：如果搜索出多个匹配，可按n键到下一个）</code></pre><h4 id="复制（拷贝）-粘贴"><a href="#复制（拷贝）-粘贴" class="headerlink" title="复制（拷贝）/粘贴"></a>复制（拷贝）/粘贴</h4><pre><code>P → 粘贴
+
+yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="#撤销-重做" class="headerlink" title="撤销/重做"></a>撤销/重做</h4><pre><code>u → 撤销
+
+&lt;C-r&gt; → 重做（反撤销）</code></pre><h4 id="打开-保存-退出-改变文件"><a href="#打开-保存-退出-改变文件" class="headerlink" title="打开/保存/退出/改变文件"></a>打开/保存/退出/改变文件</h4><pre><code>:e &lt;path/to/file&gt; → 打开一个文件
+
+:w → 存盘
+
+:saveas &lt;path/to/file&gt; → 另存为 &lt;path/to/file&gt;
+
+:x， ZZ 或 :wq → 保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车)
+
+:q! → 退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。
+
+:bn 和 :bp → 你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。（陈皓注：我喜欢使用:n到下一个文件）</code></pre><h2 id="Level-3"><a href="#Level-3" class="headerlink" title="Level 3"></a>Level 3</h2><h3 id="重复指令操作"><a href="#重复指令操作" class="headerlink" title="重复指令操作"></a>重复指令操作</h3><ul>
+<li><p>. → (小数点) 可以重复上一次的命令</p>
+</li>
+<li><p>N<command> → 重复某个命令N次</p>
+<pre><code>示例
+2dd → 删除2行
+3p → 粘贴文本3次
+100idesu [ESC] → 会写下100f个desu “desu desu ...“
+. → 重复上一个命令—— 100 “desu “
+3. → 重复 3 次 “desu” (注：不是 300)</code></pre></li>
+</ul>
+<h3 id="更高级光标移动操作"><a href="#更高级光标移动操作" class="headerlink" title="更高级光标移动操作"></a>更高级光标移动操作</h3><p>你要让你的光标移动更有效率，你一定要了解下面的这些命令，千万别跳过。</p>
+<ul>
+<li>NG → 到第 N 行 （陈皓注：注意命令中的G是大写的，另我一般使用 : N 到第N行，如 :137 到第137行）</li>
+<li>gg → 到第一行。（注：相当于1G，或 :1）</li>
+<li>G → 到最后一行</li>
+<li>按单词移动<br>w → 到下一个单词的开头。<br>e → 到下一个单词的结尾。<blockquote>
+<p>如果你认为单词是由默认方式，那么就用小写的e和w。默认上来说，一个单词由字母，数字和下划线组成（注：程序变量）</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>如果你认为单词是由blank字符分隔符，那么你需要使用大写的E和W。（注：程序语句）</p>
+</blockquote>
+<ul>
+<li>最强的光标移动（对程序员相当强大）<br>% : 匹配括号移动，包括 (, {, [. （注：你需要把光标先移到括号上）</li>
+</ul>
+<p><em>和 #:  匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词（</em>是下一个，#是上一个）</p>
+<p>个人感觉以上可满足基本需求了<br>更多更为进阶操作参考原文 酷壳网<a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">简明 VIM 练级攻略</a>.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>上面是作者最常用的90%的命令。<ul>
+<li>建议每天都学1到2个新的命令。</li>
+</ul>
+</li>
+<li>在两到三周后，你会感到vim的强大的。</li>
+<li>有时候，学习VIM就像是在死背一些东西。</li>
+<li>幸运的是，vim有很多很不错的工具和优秀的文档。</li>
+<li>运行vimtutor直到你熟悉了那些基本命令。</li>
+<li>其在线帮助文档中你应该要仔细阅读的是 :help usr_02.txt.</li>
+<li>你会学习到诸如  !， 目录，寄存器，插件等很多其它的功能。<br>学习vim就像学弹钢琴一样，一旦学会，受益无穷。</li>
+<li><strong>vi/vim</strong>：这是一个你不需要使用鼠标，不需使用小键盘，<strong>只需要使用大键盘</strong>就可以完成很多复杂功能文本编辑的编辑器。不然，Visual Studio也不就会有vim的插件了。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-16T12:32:40.453Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">最短路径问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">最短路径</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
+        			<a href="/categories/Vim//" class="article-tag-list-link color4">Vim</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/17/%E7%AE%80%E6%B4%81Vim%E6%94%BB%E7%95%A5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-14T13:14:23.259Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最短路径问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">拓扑排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim攻略（初学友好）"><span class="toc-number">1.</span> <span class="toc-text">Vim攻略（初学友好）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-1"><span class="toc-number">1.2.</span> <span class="toc-text">Level 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-2"><span class="toc-number">1.3.</span> <span class="toc-text">Level 2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#各种插入功能键"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">各种插入功能键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#各种移动光标功能键"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">各种移动光标功能键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制（拷贝）-粘贴"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">复制（拷贝）&#x2F;粘贴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#撤销-重做"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">撤销&#x2F;重做</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开-保存-退出-改变文件"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">打开&#x2F;保存&#x2F;退出&#x2F;改变文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-3"><span class="toc-number">1.4.</span> <span class="toc-text">Level 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重复指令操作"><span class="toc-number">1.4.1.</span> <span class="toc-text">重复指令操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更高级光标移动操作"><span class="toc-number">1.4.2.</span> <span class="toc-text">更高级光标移动操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2020-05-09T14:12:53.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%9B%BE/">图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%9B%86%E5%90%88%E5%8F%8A%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:52:32.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%9B%86%E5%90%88%E5%8F%8A%E5%B9%B6%E6%9F%A5%E9%9B%86/">集合及并查集</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">集合及并查集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%92%8C%E7%BC%96%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:43:32.308Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%92%8C%E7%BC%96%E7%A0%81/">哈夫曼树和编码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">哈夫曼树和编码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E5%A0%86/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:27:32.827Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E5%A0%86/">堆</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:17:59.172Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%91/">树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:47:01.240Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E6%9F%A5%E6%89%BE/">查找</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查找</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:42:58.362Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%A1%A8/">链表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:34:43.812Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">栈和队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法学习笔记//" class="article-tag-list-link color2">算法学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/page/2/">2</a><a class="extend next" rel="next" href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/page/2/">Next &amp;raquo;</a>
-    </nav>
   
+
+  
+
+  
+  
+
+
 
 
           </div>
@@ -699,10 +463,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
