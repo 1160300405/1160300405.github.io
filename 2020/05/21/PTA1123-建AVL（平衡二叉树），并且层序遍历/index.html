@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: C++ | Kris Hao的博客</title>
+  <title>PTA1123：AVL树的构建 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kris Hao的博客">
-<meta property="og:url" content="http://yoursite.com/categories/C/index.html">
+  <meta name="description" content="PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PTA1123：AVL树的构建">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/PTA1123-%E5%BB%BAAVL%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521173749315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020052117390222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-21T09:51:49.367Z">
+<meta property="article:modified_time" content="2020-05-21T09:53:44.321Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="技术记录">
+<meta property="article:tag" content="AVL树，层序遍历">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200521173749315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -164,120 +169,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PTA1123-建AVL（平衡二叉树），并且层序遍历" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/12/c++%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84printf%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-05-12T08:45:16.923Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/12/c++%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84printf%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/">C++中常用的printf自定义输出格式</a>
+    <h1 class="article-title" itemprop="name">
+      PTA1123：AVL树的构建
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/21/PTA1123-%E5%BB%BAAVL%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2020-05-21T09:51:49.367Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
+</a>
+        
+        
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树"><a href="#PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树" class="headerlink" title="PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树"></a>PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树</h1><a id="more"></a>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="https://img-blog.csdnimg.cn/20200521173749315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>题目大意，根据给定的节点序列，按照节点输入的顺序，依次在AVL树中插入节点，并且保持为AVL树</li>
+</ul>
+<h2 id="样例输入输出"><a href="#样例输入输出" class="headerlink" title="样例输入输出"></a>样例输入输出</h2><p><img src="https://img-blog.csdnimg.cn/2020052117390222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="加粗样式"></p>
+<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> val, order; <span class="comment">//order用于后序判断是否为完全二叉树</span></span><br><span class="line">	node* left=<span class="literal">NULL</span>;</span><br><span class="line">	node* right=<span class="literal">NULL</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">bool</span> iscomplete[N];<span class="comment">//将此树当做完全二叉树在数组中是否连续，用来判断</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v; <span class="comment">//存放层序遍历的结果</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetHeight</span><span class="params">(node* r)</span> <span class="comment">//求当前子树的高度</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(r==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> max(GetHeight(r-&gt;left), GetHeight(r-&gt;right))+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node* <span class="title">RotateLeft</span><span class="params">(node* r)</span> <span class="comment">//当破坏节点在右子树的右子树中，用左旋</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	node* t=r-&gt;right;</span><br><span class="line">	r-&gt;right=t-&gt;left;</span><br><span class="line">	t-&gt;left=r;</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node* <span class="title">RotateRight</span><span class="params">(node* r)</span><span class="comment">//当破坏节点在左子树的左子树中，用右旋</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	node* t=r-&gt;left;</span><br><span class="line">	r-&gt;left=t-&gt;right;</span><br><span class="line">	t-&gt;right=r;</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node* <span class="title">RotateLeftRight</span><span class="params">(node* r)</span><span class="comment">//当破坏节点在左子树的右子树中，先对左子树进行左旋，再对根节点进行右旋</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	r-&gt;left=RotateLeft(r-&gt;left);</span><br><span class="line">	<span class="keyword">return</span> RotateRight(r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node* <span class="title">RotateRightLeft</span><span class="params">(node* r)</span><span class="comment">//当破坏节点在右子树的左子树中，先对右子树进行右旋，再对根节点进行左旋</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	r-&gt;right=RotateRight(r-&gt;right);</span><br><span class="line">	<span class="keyword">return</span> RotateLeft(r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node *<span class="title">insert</span><span class="params">(node* r, <span class="keyword">int</span> val)</span> <span class="comment">//因为AVL树是特殊的二叉搜索树，故插入节点构建方法非常类似，只是再加入高度的判断，用以作为是否需要特殊旋转的依据</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(r==<span class="literal">NULL</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		r=<span class="keyword">new</span> node();</span><br><span class="line">		r-&gt;val=val;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(val&lt;r-&gt;val) <span class="comment">//必定要插入到左子树中</span></span><br><span class="line">	&#123;</span><br><span class="line">		r-&gt;left=insert(r-&gt;left, val);</span><br><span class="line">		<span class="keyword">if</span>(GetHeight(r-&gt;left) - GetHeight(r-&gt;right) == <span class="number">2</span>)</span><br><span class="line">		<span class="comment">//当左右子树高度差为2时，出现了不平衡，此时需要旋转</span></span><br><span class="line">			r = val &lt; r-&gt;left-&gt;val ? RotateRight(r):RotateLeftRight(r);</span><br><span class="line">		<span class="comment">//上面第一种情况是此节点插入到了左子树的左子树上，则用右旋，不然则是插入到了左子树的右子树上，用先左后右旋</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		r-&gt;right=insert(r-&gt;right, val);</span><br><span class="line">		<span class="keyword">if</span>(GetHeight(r-&gt;left) - GetHeight(r-&gt;right) == <span class="number">-2</span>)</span><br><span class="line">			r = val &gt; r-&gt;right-&gt;val ? RotateLeft(r):RotateRightLeft(r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;            </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONLINE_JUDGE     </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">	freopen(<span class="string">"/Users/ksh/Documents/PAT刷题代码/td.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="keyword">int</span> n, val;</span><br><span class="line">	node* root=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;val);</span><br><span class="line">		root=insert(root, val);</span><br><span class="line">	&#125;</span><br><span class="line">	fill(iscomplete, iscomplete+N, <span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q; <span class="comment">//下面是层序遍历的模板，另外加入了判断是否为完全二叉树的参数数组设置</span></span><br><span class="line">	root-&gt;order=<span class="number">1</span>;</span><br><span class="line">	q.push(root);</span><br><span class="line">	iscomplete[root-&gt;order]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		node* tmp=q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		v.push_back(tmp-&gt;val);</span><br><span class="line">		<span class="keyword">if</span>(tmp-&gt;left != <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			q.push(tmp-&gt;left);</span><br><span class="line">			iscomplete[tmp-&gt;order*<span class="number">2</span>]=<span class="literal">true</span>;</span><br><span class="line">			tmp-&gt;left-&gt;order=tmp-&gt;order*<span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(tmp-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			q.push(tmp-&gt;right);</span><br><span class="line">			iscomplete[tmp-&gt;order*<span class="number">2</span>+<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line">			tmp-&gt;right-&gt;order=tmp-&gt;order*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d%s"</span>, v[i], i==n<span class="number">-1</span> ? <span class="string">"\n"</span>:<span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(!iscomplete[i]) </span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"NO"</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"YES"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这道题还是比较难的，重点难在AVL树的构建当中，但构建AVL树是一种模板题目，只要把上面的模板背熟即可（左旋，右旋，左右旋，右左旋， 类似于构建二叉搜索树的insert方法，这些函数均是返回一个节点指针node*给上一层节点），一定要在理解的基础上还要背的很熟，因为出现一点错误都不能让构建AVL代码正确运行。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C++中printf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AVL树，层序遍历</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
+        			<a href="/categories/算法刷题//" class="article-tag-list-link color5">算法刷题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法刷题/PTA-树//" class="article-tag-list-link color1">PTA-树</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/21/PTA1123-%E5%BB%BAAVL%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/C++%E5%88%B7%E9%A2%98%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-17T06:59:33.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/21/PTA1150-%E6%97%85%E8%A1%8C%E5%95%86%E7%8E%AF%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PTA1150：旅行商环路</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/C++%E5%88%B7%E9%A2%98%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93/">C++常用库函数的总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C++库函数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树"><span class="toc-number">1.</span> <span class="toc-text">PTA1123-建AVL（平衡二叉树），并且层序遍历，判断是否完全二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样例输入输出"><span class="toc-number">1.2.</span> <span class="toc-text">样例输入输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题代码"><span class="toc-number">1.3.</span> <span class="toc-text">解题代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+  
+
+
 
 
           </div>
@@ -303,10 +381,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
