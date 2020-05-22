@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200522165743536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200522165814981.png">
 <meta property="article:published_time" content="2020-05-22T09:33:21.228Z">
-<meta property="article:modified_time" content="2020-05-22T10:01:52.729Z">
+<meta property="article:modified_time" content="2020-05-22T10:04:51.471Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="C++库函数">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,7 @@ world!
 <p>简单来说就是，它返回已成功赋值的数据项数；出错时则返回<strong>EOF.</strong></p>
 <p><strong>（注：EOF(End Of File)是一个预定义的常量，等于-1）</strong></p>
 <h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p>printf的多种输出格式，在同分类的博客里有分析到，重点记住前面自动补数的输出，已经string类型的printf输出方法，用string.c_str()方法。还有比如保留小数点后3位的输出方法printf(“%.3f”, fn).</p>
-<h1 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h1><p>基本说明：<br>　　gets()函数用来从标准输入设备（键盘）读取字符串<strong>直到换行符结束</strong>，但换行符会被丢弃，然后在末尾添加’\0’字符。包含在头文件&lt;stdio.h&gt;中。<br>　　gets(s)函数与 scanf(“%s”,&amp;s) 相似，但不完全相同，使用scanf(“%s”,&amp;s) 函数输入字符串时存在一个问题，就是如果输入了空格会认为字符串结束，空格后的字符将作为下一个输入项处理，但gets()函数将接收输入的整个字符串直到遇到换行为止。<br>原型：<br>　　char<em>gets(char</em>buffer);</p>
+<h1 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h1><p>基本说明：<br>　　gets()函数用来从标准输入设备（键盘）读取字符串<strong>直到换行符结束</strong>，但换行符会被丢弃，然后在末尾添加’\0’字符。包含在头文件&lt;stdio.h&gt;中。<br>　　gets(s)函数与 scanf(“%s”,&amp;s) 相似，但不完全相同，使用scanf(“%s”,&amp;s) 函数输入字符串时存在一个问题，就是如果输入了空格会认为字符串结束，空格后的字符将作为下一个输入项处理，但gets()函数将接收输入的整个字符串直到遇到换行为止。<br>原型：<br>　　char *gets(char *buffer);</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">　　<span class="keyword">char</span> str1[<span class="number">20</span>], str2[<span class="number">20</span>];</span><br><span class="line">　　gets(str1); </span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str1);  </span><br><span class="line">　　gets(str2); </span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str2); </span><br><span class="line">　　<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <pre><code>输入：Hello world!    
 输出：Hello world!    
@@ -572,11 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
