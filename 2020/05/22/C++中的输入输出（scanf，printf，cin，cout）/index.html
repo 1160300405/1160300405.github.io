@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vim使用攻略 | Kris Hao的博客</title>
+  <title>C++中的输入输出 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vim攻略（初学友好）">
+  <meta name="description" content="C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim使用攻略">
-<meta property="og:url" content="http://yoursite.com/2020/05/17/%E7%AE%80%E6%B4%81Vim%E6%94%BB%E7%95%A5/index.html">
+<meta property="og:title" content="C++中的输入输出">
+<meta property="og:url" content="http://yoursite.com/2020/05/22/C++%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%88scanf%EF%BC%8Cprintf%EF%BC%8Ccin%EF%BC%8Ccout%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="Vim攻略（初学友好）">
+<meta property="og:description" content="C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-17T11:59:38.908Z">
-<meta property="article:modified_time" content="2020-05-17T12:19:33.981Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522164048841.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522165743536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522165814981.png">
+<meta property="article:published_time" content="2020-05-22T09:33:21.228Z">
+<meta property="article:modified_time" content="2020-05-22T09:35:22.055Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="C++库函数">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200522164048841.png">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -166,20 +170,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-简洁Vim攻略" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C++中的输入输出（scanf，printf，cin，cout）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Vim使用攻略
+      C++中的输入输出
     </h1>
   
 
         
-        <a href="/2020/05/17/%E7%AE%80%E6%B4%81Vim%E6%94%BB%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-05-17T11:59:38.908Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+        <a href="/2020/05/22/C++%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%88scanf%EF%BC%8Cprintf%EF%BC%8Ccin%EF%BC%8Ccout%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-22T09:33:21.228Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
 </a>
         
         
@@ -193,95 +197,76 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Vim攻略（初学友好）"><a href="#Vim攻略（初学友好）" class="headerlink" title="Vim攻略（初学友好）"></a>Vim攻略（初学友好）</h1><a id="more"></a>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>vim的学习曲线是非常大的，所以对于初学者来说真的是非常不友好的，让这款编辑器在一开始就劝退了很多人，本文主要列举了一些最常用的指令。<br>学习 vim 并且其会成为你最后一个使用的文本编辑器。没有比这个更好的文本编辑器了，非常地难学，但是却不可思议地好用。本文主要参考 酷壳网<a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">简明 VIM 练级攻略</a>。</p>
-<h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><ul>
-<li><p>启动Vim后，vim在 Normal 模式下。</p>
-</li>
-<li><p>让我们进入 Insert 模式，请按下键 i (注：你会看到vim左下角有一个–insert–字样，表示，你可以以插入的方式输入了）</p>
-</li>
-<li><p>此时，你可以输入文本了，就像你用“记事本”一样。</p>
-</li>
-<li><p>如果你想返回 Normal 模式，请按 ESC 键。<br>下面是一些Normal命令，可以让你在 Normal 模式纵享丝滑。</p>
-<p>  i → Insert 模式，按 ESC 回到 Normal 模式.</p>
-<p>  x → 删当前光标所在的一个字符。</p>
-<p>  :wq → 存盘 + 退出 (:w 存盘, :q 退出)<br>  （注：:w 后可以跟文件名）</p>
-<p>  dd → 删除当前行，并把删除的行存到剪贴板里</p>
-<p>  p → 粘贴剪贴板</p>
-<p>  hjkl (强例推荐使用其移动光标，但不必需) →你也可以使用光标键 (←↓↑→). 注: j 就像下箭头。</p>
-<p>  :help <command> → 显示相关命令的帮助。你也可以就输入 :help 而不跟命令。（注：退出帮助需要输入:q）</p>
-</li>
-</ul>
-<p><strong>在VIM的Normal模式下，所有的键就是功能键了。</strong></p>
-<p><strong>标记:</strong></p>
-<p>下面的文字中，如果是 Ctrl简写成 C.<br>以冒号（：）开始的命令需要输入回车执行，例如 写成 :q 也就是说你要输入 :q+回车执行此命令</p>
-<h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><p>所有的命令都需要在<strong>Normal</strong>模式下使用，如果你不知道现在在什么样的模式，你就狂按几次<strong>ESC</strong>键</p>
-<h4 id="各种插入功能键"><a href="#各种插入功能键" class="headerlink" title="各种插入功能键"></a>各种插入功能键</h4><pre><code>a → 在光标后插入
-
-o → 在当前行后插入一个新行
-
-0 → 在当前行前插入一个新行
-
-cw → 替换从光标所在位置后到一个单词结尾的字符</code></pre><h4 id="各种移动光标功能键"><a href="#各种移动光标功能键" class="headerlink" title="各种移动光标功能键"></a>各种移动光标功能键</h4><pre><code>0 → 数字零，到行头
-
-^ → 到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等）
-
-$ → 到本行行尾
-
-g_ → 到本行最后一个不是blank字符的位置
-
-/pattern → 搜索 pattern 的字符串（注：如果搜索出多个匹配，可按n键到下一个）</code></pre><h4 id="复制（拷贝）-粘贴"><a href="#复制（拷贝）-粘贴" class="headerlink" title="复制（拷贝）/粘贴"></a>复制（拷贝）/粘贴</h4><pre><code>P → 粘贴
-
-yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="#撤销-重做" class="headerlink" title="撤销/重做"></a>撤销/重做</h4><pre><code>u → 撤销
-
-&lt;C-r&gt; → 重做（反撤销）</code></pre><h4 id="打开-保存-退出-改变文件"><a href="#打开-保存-退出-改变文件" class="headerlink" title="打开/保存/退出/改变文件"></a>打开/保存/退出/改变文件</h4><pre><code>:e &lt;path/to/file&gt; → 打开一个文件
-
-:w → 存盘
-
-:saveas &lt;path/to/file&gt; → 另存为 &lt;path/to/file&gt;
-
-:x， ZZ 或 :wq → 保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车)
-
-:q! → 退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。
-
-:bn 和 :bp → 你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。（陈皓注：我喜欢使用:n到下一个文件）</code></pre><h2 id="Level-3"><a href="#Level-3" class="headerlink" title="Level 3"></a>Level 3</h2><h3 id="重复指令操作"><a href="#重复指令操作" class="headerlink" title="重复指令操作"></a>重复指令操作</h3><ul>
-<li><p>. → (小数点) 可以重复上一次的命令</p>
-</li>
-<li><p>N<command> → 重复某个命令N次</p>
-<p>  示例<br>  2dd → 删除2行<br>  3p → 粘贴文本3次<br>  100idesu [ESC] → 会写下100f个desu “desu desu …“<br>  . → 重复上一个命令—— 100 “desu “</p>
-<ol start="3">
-<li>→ 重复 3 次 “desu” (注：不是 300)</li>
-</ol>
-</li>
-</ul>
-<h3 id="更高级光标移动操作"><a href="#更高级光标移动操作" class="headerlink" title="更高级光标移动操作"></a>更高级光标移动操作</h3><p>你要让你的光标移动更有效率，你一定要了解下面的这些命令，千万别跳过。</p>
+        <h1 id="C-中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）"><a href="#C-中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）" class="headerlink" title="C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）"></a>C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）</h1><a id="more"></a>
+<h1 id="cin和cout"><a href="#cin和cout" class="headerlink" title="cin和cout"></a>cin和cout</h1><h2 id="1-cin-lt-lt"><a href="#1-cin-lt-lt" class="headerlink" title="1.cin&lt;&lt;"></a>1.cin&lt;&lt;</h2><p><strong>cin是自动判断你的变量类型</strong><br>该操作符是根据后面变量的类型读取数据。<br>输入结束条件   ：遇到<strong>Enter</strong>、<strong>Space</strong>、<strong>Tab</strong>键。<br>对结束符的处理 ：丢弃缓冲区中使得输入结束的结束符(Enter、Space、Tab)</p>
+<h2 id="2-cout-gt-gt"><a href="#2-cout-gt-gt" class="headerlink" title="2.cout&gt;&gt;"></a>2.cout&gt;&gt;</h2><p><strong>cout也是自动根据你的变量的本身类型自动识别并且进行输出</strong></p>
+<h2 id="3-代码样例"><a href="#3-代码样例" class="headerlink" title="3.代码样例"></a>3.代码样例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;            </span><br><span class="line">	<span class="keyword">char</span> c, d, e, f;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;c&gt;&gt;d&gt;&gt;e&gt;&gt;f&gt;&gt;s;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;d&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;e&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;f&lt;&lt;<span class="string">"   "</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;s;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>输入：a b c d kong
+输出：
+a
+b c
+d   kong</code></pre><p><img src="https://img-blog.csdnimg.cn/20200522164048841.png" alt="在这里插入图片描述"></p>
+<h1 id="scanf和printf"><a href="#scanf和printf" class="headerlink" title="scanf和printf"></a>scanf和printf</h1><p>scanf是格式化输入，printf是格式化输出，包含在头文件&lt;stdio.h&gt;中。</p>
+<h2 id="scanf"><a href="#scanf" class="headerlink" title="scanf"></a>scanf</h2><p>scanf()函数取数据是<br>遇到回车、空格、TAB就会停止，如下面代码，第一个scanf()会取出”Hello”，而”world!”还在缓冲区中，这样第二个scanf会直接取出这些数据，而不会等待从终端输入。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">　<span class="keyword">char</span> str1[<span class="number">20</span>], str2[<span class="number">20</span>];</span><br><span class="line">　<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1); </span><br><span class="line">　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str1);  </span><br><span class="line">　<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str2); </span><br><span class="line">　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str2); </span><br><span class="line">　<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>输入：Hello world!
+输出：
+Hello
+world!
+第一个scanf()会取出&quot;Hello&quot;，而&quot;world!&quot;还在缓冲区中，这样第二个scanf会直接取出这些数据，而不会等待从终端输入。</code></pre><h3 id="scanf-的返回值"><a href="#scanf-的返回值" class="headerlink" title="scanf( )的返回值"></a>scanf( )的返回值</h3><p>“所输入的数据与格式字符串中匹配次数”</p>
+<p>简单来说就是，它返回已成功赋值的数据项数；出错时则返回<strong>EOF.</strong></p>
+<p><strong>（注：EOF(End Of File)是一个预定义的常量，等于-1）</strong></p>
+<h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p>printf的多种输出格式，在同分类的博客里有分析到，重点记住前面自动补数的输出，已经string类型的printf输出方法，用string.c_str()方法。还有比如保留小数点后3位的输出方法printf(“%.3f”, fn).</p>
+<h1 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h1><p>基本说明：<br>　　gets()函数用来从标准输入设备（键盘）读取字符串<strong>直到换行符结束</strong>，但换行符会被丢弃，然后在末尾添加’\0’字符。包含在头文件&lt;stdio.h&gt;中。<br>　　gets(s)函数与 scanf(“%s”,&amp;s) 相似，但不完全相同，使用scanf(“%s”,&amp;s) 函数输入字符串时存在一个问题，就是如果输入了空格会认为字符串结束，空格后的字符将作为下一个输入项处理，但gets()函数将接收输入的整个字符串直到遇到换行为止。<br>原型：<br>　　char<em>gets(char</em>buffer);</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">　　<span class="keyword">char</span> str1[<span class="number">20</span>], str2[<span class="number">20</span>];</span><br><span class="line">　　gets(str1); </span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str1);  </span><br><span class="line">　　gets(str2); </span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str2); </span><br><span class="line">　　<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>输入：Hello world!    
+输出：Hello world!    
+输入：12345      
+输出：12345</code></pre><h1 id="sscanf和sprintf"><a href="#sscanf和sprintf" class="headerlink" title="sscanf和sprintf"></a>sscanf和sprintf</h1><p>用于处理和分析字符串非常强大得两个函数</p>
+<h2 id="sscanf"><a href="#sscanf" class="headerlink" title="sscanf"></a>sscanf</h2><p>sscanf是一个很好用的函数，利用它可以从字符串中取出整数、浮点数和字符串等等。它的使用方法简单，特别对于整数和浮点数来说。但可能不知道处理字符串时的一些高级用法，这里做个简要说明吧。</p>
 <ul>
-<li>NG → 到第 N 行 （陈皓注：注意命令中的G是大写的，另我一般使用 : N 到第N行，如 :137 到第137行）</li>
-<li>gg → 到第一行。（注：相当于1G，或 :1）</li>
-<li>G → 到最后一行</li>
-<li>按单词移动<br>w → 到下一个单词的开头。<br>e → 到下一个单词的结尾。<blockquote>
-<p>如果你认为单词是由默认方式，那么就用小写的e和w。默认上来说，一个单词由字母，数字和下划线组成（注：程序变量）</p>
-</blockquote>
-</li>
+<li>常见用法。<br>以下是引用片段：</li>
 </ul>
-<blockquote>
-<p>如果你认为单词是由blank字符分隔符，那么你需要使用大写的E和W。（注：程序语句）</p>
-</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">512</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123456 "</span>, <span class="string">"%s"</span>, str);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"str=%s\n"</span>, str); <span class="comment">//str=123456</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>最强的光标移动（对程序员相当强大）<br>% : 匹配括号移动，包括 (, {, [. （注：你需要把光标先移到括号上）</li>
+<li>取指定长度的字符串。如在下例中，取最大长度为4字节的字符串。<br>以下是引用片段：</li>
 </ul>
-<p><em>和 #:  匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词（</em>是下一个，#是上一个）</p>
-<p>个人感觉以上可满足基本需求了<br>更多更为进阶操作参考原文 酷壳网<a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">简明 VIM 练级攻略</a>.</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>上面是作者最常用的90%的命令。</li>
-<li>建议每天都学1到2个新的命令。</li>
-<li>在两到三周后，你会感到vim的强大的。</li>
-<li>有时候，学习VIM就像是在死背一些东西。</li>
-<li>幸运的是，vim有很多很不错的工具和优秀的文档。</li>
-<li>运行vimtutor直到你熟悉了那些基本命令。</li>
-<li>其在线帮助文档中你应该要仔细阅读的是 :help usr_02.txt.</li>
-<li>你会学习到诸如  !， 目录，寄存器，插件等很多其它的功能。<br>学习vim就像学弹钢琴一样，一旦学会，受益无穷。</li>
-<li><strong>vi/vim</strong>：这是一个你不需要使用鼠标，不需使用小键盘，<strong>只需要使用大键盘</strong>就可以完成很多复杂功能文本编辑的编辑器。不然，Visual Studio也不就会有vim的插件了。</li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123456 "</span>, <span class="string">"%4s"</span>, str);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"str=%s\n"</span>, str); <span class="comment">//str=1234</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>取到指定字符为止的字符串。如在下例中，取遇到空格为止字符串。<br>以下是引用片段：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123456 abcdedf"</span>, <span class="string">"%[^ ]"</span>, str); <span class="comment">//正则表达式中一直读到空字符（^ ）结束</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"str=%s\n"</span>, str); <span class="comment">//str=123456</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>取仅包含指定字符集的字符串。如在下例中，取仅包含1到9和小写字母的字符串。<br>以下是引用片段：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123456abcdedfBCDEF"</span>, <span class="string">"%[1-9a-z]"</span>, str);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"str=%s\n"</span>, str); <span class="comment">//str=123456abcdedf</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>取到指定字符集为止的字符串。如在下例中，取遇到大写字母为止的字符串。<br>以下是引用片段：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123456abcdedfBCDEF"</span>, <span class="string">"%[^A-Z]"</span>, str);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"str=%s\n"</span>, str); <span class="comment">//str=123456abcdedf</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下面是一些更为简单的例子<br><img src="https://img-blog.csdnimg.cn/20200522165743536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h2><ul>
+<li>sprintf用于格式化字符串<br>把变量打印到字符串中，从而获得数字的字符形式，这样不需要手工转换（相当于itos）</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> k=<span class="number">255</span>;</span><br><span class="line"><span class="built_in">sprintf</span>(c,<span class="string">"%d"</span>,k);</span><br><span class="line"><span class="comment">//c包含"255"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>sprintf用于进制转换<br>可以方便地得到变量的十六进制和八进制字符序列，再稍加处理即可得到每一位的值。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> k=<span class="number">255</span>;</span><br><span class="line"><span class="built_in">sprintf</span>(c,<span class="string">"%x"</span>,k);</span><br><span class="line"><span class="comment">//c包含"ff" c[0]='f' c[1]='f'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sprintf用于连接字符串<br>方便地连接两个或者多个字符串</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">1024</span>];</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">100</span>]=<span class="string">"I "</span>;</span><br><span class="line"><span class="keyword">char</span> b[<span class="number">100</span>]=<span class="string">"love "</span>;</span><br><span class="line"><span class="keyword">char</span> c[<span class="number">100</span>]=<span class="string">"ACM."</span></span><br><span class="line"><span class="built_in">sprintf</span>(buf,<span class="string">"%s%s%s"</span>,a,b,c);</span><br><span class="line"><span class="comment">//buf 包含"I love ACM."</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下面是一些简单例子<br><img src="https://img-blog.csdnimg.cn/20200522165814981.png" alt="在这里插入图片描述"></li>
 </ul>
 
       
@@ -296,7 +281,7 @@ yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C++库函数</a>
         		</li>
       		
 		</ul>
@@ -308,7 +293,7 @@ yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Vim//" class="article-tag-list-link color4">Vim</a>
+        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -363,7 +348,7 @@ yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/17/%E7%AE%80%E6%B4%81Vim%E6%94%BB%E7%95%A5/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/22/C++%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%88scanf%EF%BC%8Cprintf%EF%BC%8Ccin%EF%BC%8Ccout%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -377,18 +362,9 @@ yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="
   
 <nav id="article-nav">
   
-    <a href="/2020/05/18/PTA1119-%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%EF%BC%88%E5%B7%B2%E7%9F%A5%E5%89%8D%E5%BA%8F%E5%90%8E%E5%BA%8F%E6%B1%82%E4%B8%AD%E5%BA%8F%EF%BC%8C%E5%B9%B6%E8%AE%A1%E7%AE%97%E5%85%B1%E6%9C%89%E5%A4%9A%E5%B0%91%E7%A7%8D%E6%A0%91%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          PTA1119：二叉树已知前后序，求中序，以及种数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">最短路径问题</div>
+    <a href="/2020/05/21/PTA1048-Hash%E6%95%A3%E5%88%97&%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PTA1048：Hash散列以及二分查找</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -415,7 +391,7 @@ yy → 复制当前行当行于 ddP</code></pre><h4 id="撤销-重做"><a href="
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim攻略（初学友好）"><span class="toc-number">1.</span> <span class="toc-text">Vim攻略（初学友好）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-1"><span class="toc-number">1.2.</span> <span class="toc-text">Level 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-2"><span class="toc-number">1.3.</span> <span class="toc-text">Level 2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#各种插入功能键"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">各种插入功能键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#各种移动光标功能键"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">各种移动光标功能键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制（拷贝）-粘贴"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">复制（拷贝）&#x2F;粘贴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#撤销-重做"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">撤销&#x2F;重做</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开-保存-退出-改变文件"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">打开&#x2F;保存&#x2F;退出&#x2F;改变文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-3"><span class="toc-number">1.4.</span> <span class="toc-text">Level 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重复指令操作"><span class="toc-number">1.4.1.</span> <span class="toc-text">重复指令操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更高级光标移动操作"><span class="toc-number">1.4.2.</span> <span class="toc-text">更高级光标移动操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）"><span class="toc-number">1.</span> <span class="toc-text">C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cin和cout"><span class="toc-number">2.</span> <span class="toc-text">cin和cout</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cin-lt-lt"><span class="toc-number">2.1.</span> <span class="toc-text">1.cin&lt;&lt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cout-gt-gt"><span class="toc-number">2.2.</span> <span class="toc-text">2.cout&gt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-代码样例"><span class="toc-number">2.3.</span> <span class="toc-text">3.代码样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#scanf和printf"><span class="toc-number">3.</span> <span class="toc-text">scanf和printf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#scanf"><span class="toc-number">3.1.</span> <span class="toc-text">scanf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#scanf-的返回值"><span class="toc-number">3.1.1.</span> <span class="toc-text">scanf( )的返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf"><span class="toc-number">3.2.</span> <span class="toc-text">printf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gets"><span class="toc-number">4.</span> <span class="toc-text">gets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sscanf和sprintf"><span class="toc-number">5.</span> <span class="toc-text">sscanf和sprintf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sscanf"><span class="toc-number">5.1.</span> <span class="toc-text">sscanf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sprintf"><span class="toc-number">5.2.</span> <span class="toc-text">sprintf</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
