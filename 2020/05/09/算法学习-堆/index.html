@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200512215928179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200512220118966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-09T13:27:32.827Z">
-<meta property="article:modified_time" content="2020-05-23T07:04:05.449Z">
+<meta property="article:modified_time" content="2020-05-23T07:30:35.713Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="堆">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,9 @@
 <p><img src="https://img-blog.csdnimg.cn/2020050921212362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="最大堆删除操作"><a href="#最大堆删除操作" class="headerlink" title="最大堆删除操作"></a>最大堆删除操作</h2><p>首先取出根节点（最大值）元素，然后从数组末尾元素放到根的位置（保证结构仍然是一个完全二叉树），然后从根开始调整，同其左右儿子比较，然后移动</p>
 <h2 id="最大堆建立操作"><a href="#最大堆建立操作" class="headerlink" title="最大堆建立操作"></a>最大堆建立操作</h2><p>建立最大堆：将已经存在的N个元素按最大堆的要求存放在一个一维数组中</p>
-<p><img src="https://img-blog.csdnimg.cn/20200509212243209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200509212307622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从<strong>第一个有儿子的节点</strong>（尾结点的下标除以2）开始操作，每次都进行类似与删除最大节点后的调整工作，每次i–的向前调整操作，直到调整完根节点结束，即可以在O(N)时间内完成建堆操作</p>
+<p><img src="https://img-blog.csdnimg.cn/20200509212243209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>实际上方法1和2的时间复杂度都是O(n)</p>
+<p><img src="https://img-blog.csdnimg.cn/20200509212307622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从<strong>第一个有儿子的节点</strong>（尾结点的下标除以2）开始操作，每次都进行类似与删除最大节点后的调整工作，每次i–的向前调整操作，直到调整完根节点结束，即可以在O(N)时间内完成建堆操作</p>
 <h2 id="题目实战"><a href="#题目实战" class="headerlink" title="题目实战"></a>题目实战</h2><p>堆中的路径（最小堆）</p>
 <p><img src="https://img-blog.csdnimg.cn/20200509212502532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/20200509212508756.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -514,11 +516,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hash散列，二分查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">完全二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hash散列，二分查找</a>
+                <a href="javascript:void(0)" class="js-tag color3">欧拉图，并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,10 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">哈密顿图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">欧拉图，并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,11 +576,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
               </li>
              
               <li class="article-tag-list-item">
