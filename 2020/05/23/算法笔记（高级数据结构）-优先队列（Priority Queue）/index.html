@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | Kris Hao的博客</title>
+  <title>优先队列（Priority Queue） | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kris Hao的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/page/3/index.html">
+  <meta name="description" content="算法笔记（高级数据结构）-优先队列（Priority Queue）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优先队列（Priority Queue）">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88Priority%20Queue%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="算法笔记（高级数据结构）-优先队列（Priority Queue）">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523151607872.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523153305335.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523153743168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523155854447.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523155739119.png">
+<meta property="article:published_time" content="2020-05-23T08:01:57.399Z">
+<meta property="article:modified_time" content="2020-05-23T08:02:57.019Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="技术记录">
+<meta property="article:tag" content="优先队列">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200523151607872.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -164,48 +172,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-算法笔记（高级数据结构）-优先队列（Priority Queue）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      优先队列（Priority Queue）
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88Priority%20Queue%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-23T08:01:57.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+        
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="算法笔记（高级数据结构）-优先队列（Priority-Queue）"><a href="#算法笔记（高级数据结构）-优先队列（Priority-Queue）" class="headerlink" title="算法笔记（高级数据结构）-优先队列（Priority Queue）"></a>算法笔记（高级数据结构）-优先队列（Priority Queue）</h1><a id="more"></a>
+<h2 id="算法结构本质：最大最小堆（二叉堆）（也可以说是数组中实现的完全二叉树）"><a href="#算法结构本质：最大最小堆（二叉堆）（也可以说是数组中实现的完全二叉树）" class="headerlink" title="算法结构本质：最大最小堆（二叉堆）（也可以说是数组中实现的完全二叉树）"></a>算法结构本质：<strong>最大最小堆（二叉堆）</strong>（也可以说是数组中实现的<strong>完全二叉树</strong>）</h2><p><img src="https://img-blog.csdnimg.cn/20200523151607872.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
+<li><p><strong><em>插入：向上筛选（sift up / bubble up）</em></strong><br>（插入新节点，先放到堆的底部，然后不断向上比较调整位置，若比父节点优先级别高，则和父节点交换位置，O(logk)）</p>
+</li>
+<li><p><strong><em>删除：向下筛选（sift down / bubble down）</em></strong><br>（当堆顶节点被取出时，将堆底部最后一个元素放置到堆顶，然后依次向下比较调整，也是O(logk)）</p>
+</li>
+<li><p><strong><em>初始化：对n个节点不断进行插入</em></strong><br>表面上是O(nlogn)，但实际上是<strong>O(n)</strong></p>
+</li>
+<li><p>与普通队列的区别：保证每次取出的元素是队列中优先级（比如数值中最大或最小）最高的</p>
+<h2 id="最常用的场景："><a href="#最常用的场景：" class="headerlink" title="最常用的场景："></a>最常用的场景：</h2></li>
+<li><p>从杂乱无章的数据中按照一定的顺序（或者优先级）筛选数据。</p>
+</li>
+<li><p>例如：任意给定一个无序数组，求前k大的数。如果直接排序然后输出，是O(nlogn)。如果用优先队列就可以优化为O(n+logk)即初始化O(n)加上删除O(logk)</p>
+</li>
+</ul>
+<h2 id="例题解析"><a href="#例题解析" class="headerlink" title="例题解析"></a>例题解析</h2><p><img src="https://img-blog.csdnimg.cn/20200523153305335.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可以用map建立单词和其出现个数的映射，然后用优先队列求解就是O(n+logk)</p>
+<h2 id="c-优先队列-priority-queue-用法"><a href="#c-优先队列-priority-queue-用法" class="headerlink" title="c++优先队列(priority_queue)用法"></a>c++优先队列(priority_queue)用法</h2><ul>
+<li><p>首先要包含头文件#include<queue>, 他和queue不同的就在于我们可以自定义其中数据的优先级, 让优先级高的排在队列前面,优先出队。</queue></p>
+</li>
+<li><p><strong>优先队列具有队列的所有特性</strong>，包括队列的基本操作，只是在这基础上添加了内部的一个排序，它本质是一个<strong>堆</strong>实现的。<br><img src="https://img-blog.csdnimg.cn/20200523153743168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong><em>定义：priority_queue&lt;Type, Container, Functional&gt;</em></strong></p>
+</li>
+</ul>
+<p><strong><em>Type：</em></strong> 就是数据类型<br><strong><em>Container：</em></strong> 就是容器类型（Container必须是用数组实现的容器，比如vector,deque等等，但不能用 list。STL里面默认用的是vector）<br><strong><em>Functional：</em></strong> 就是比较的方式。<br>当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆。</p>
+<ul>
+<li><strong><em>使用实例代码</em></strong></li>
+</ul>
+<p>普通int类型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序队列，小顶堆</span></span><br><span class="line">priority_queue &lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line"><span class="comment">//降序队列，大顶堆</span></span><br><span class="line">priority_queue &lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,less&lt;<span class="keyword">int</span>&gt; &gt;q;</span><br><span class="line"></span><br><span class="line"><span class="comment">//greater和less是std实现的两个仿函数（就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator()，这个类就有了类似函数的行为，就是一个仿函数类了）</span></span><br></pre></td></tr></table></figure>
+
+<p>pair的比较，先比较第一个元素，第一个相等比较第二个</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    priority_queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; a;</span><br><span class="line">    pair&lt;int, int&gt; b(1, 2);</span><br><span class="line">    pair&lt;int, int&gt; c(1, 3);</span><br><span class="line">    pair&lt;int, int&gt; d(2, 5);</span><br><span class="line">    a.push(d);</span><br><span class="line">    a.push(c);</span><br><span class="line">    a.push(b);</span><br><span class="line">    <span class="keyword">while</span> (!a.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a.top().first &lt;&lt; <span class="string">' '</span> &lt;&lt; a.top().second &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        a.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果<br><img src="https://img-blog.csdnimg.cn/20200523155854447.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><strong><em>自定义优先队列代码</em></strong></li>
+</ul>
+<p>小顶堆（因为默认的是大顶堆，自定义结构体）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    node(<span class="keyword">int</span> x,<span class="keyword">int</span> y):x(x),y(y)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(node a,node b)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.x == b.x)  <span class="keyword">return</span> a.y &gt;= b.y;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> a.x &gt; b.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    priority_queue&lt;node,<span class="built_in">vector</span>&lt;node&gt;,cmp&gt; pq;    <span class="comment">//带有三个参数的优先队列;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">5</span>; j++)</span><br><span class="line">            pq.push(node(i,j));</span><br><span class="line">    <span class="keyword">while</span>(!pq.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;pq.top().x&lt;&lt;<span class="string">" "</span>&lt;&lt;pq.top().y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        pq.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>STL默认都是使用()比较的，默认比较使用less（即’&lt;’运算符），如sort(a,a+n)，默认将数组按照递增的顺序来排序（前面的元素&lt;后面的嘛），但是优先队列的源码比较奇特，虽然按道理使用less比较应该默认是小根堆（即堆顶元素最小），但是priority_queue&lt;&gt;默认是大根堆的，这是因为优先队列队首指向最后，队尾指向最前面的缘故！每次入队元素进去经排序调整后，优先级最大的元素排在最前面，也就是队尾指向的位置，这时候队首指向优先级最小的元素！所以虽然使用less但其实相当于greater，我们重载运算符的时候比较函数里面写&gt;就相当于&lt;排序方式，这点需要花点时间想想，再来说一说优先队列的这个类型，其实有三个参数：priority_queue&lt;class Type,class Container,class Compare&gt;，即类型，容器和比较器，后两个参数可以缺省，这样默认的容器就是vector，比较方法是less，也就是默认大根堆，可以自定义写比较方法，但此时若有比较方法参数，则容器参数不可省略！priority_queue&lt;&gt;的可支持的容器必须是用数组实现的容器，如vector，deque，但不能是list（推荐vector），比较方法可以写结构体重载()运算符，也可以用less，greater这些语言实现了的，但是灵活性不够，建议手写重载结构体，或者——如果不想写比较结构体的话，就将后面的两个参数缺省，直接重载类型的&lt;运算符，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    node(<span class="keyword">int</span> x,<span class="keyword">int</span> y):x(x),y(y)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (node a,node b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.x == b.x)  <span class="keyword">return</span> a.y &gt;= b.y;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a.x &gt; b.x;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    priority_queue&lt;node&gt; pq;    <span class="comment">//只传node，但是node结构体的&lt;运算符已被改变</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">5</span>; j++)</span><br><span class="line">            pq.push(node(i,j));</span><br><span class="line">    <span class="keyword">while</span>(!pq.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;pq.top().x&lt;&lt;<span class="string">" "</span>&lt;&lt;pq.top().y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        pq.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码结果<br><img src="https://img-blog.csdnimg.cn/20200523155739119.png" alt="在这里插入图片描述"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E5%A0%86/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:27:32.827Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E5%A0%86/">堆</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">优先队列</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -218,413 +274,129 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/23/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88Priority%20Queue%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:17:59.172Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/23/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%89%8D%E7%BC%80%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          前缀树（字典树）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数组</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%91/">树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记（高级数据结构）-优先队列（Priority-Queue）"><span class="toc-number">1.</span> <span class="toc-text">算法笔记（高级数据结构）-优先队列（Priority Queue）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法结构本质：最大最小堆（二叉堆）（也可以说是数组中实现的完全二叉树）"><span class="toc-number">1.1.</span> <span class="toc-text">算法结构本质：最大最小堆（二叉堆）（也可以说是数组中实现的完全二叉树）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本操作"><span class="toc-number">1.2.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最常用的场景："><span class="toc-number">1.3.</span> <span class="toc-text">最常用的场景：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题解析"><span class="toc-number">1.4.</span> <span class="toc-text">例题解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-优先队列-priority-queue-用法"><span class="toc-number">1.5.</span> <span class="toc-text">c++优先队列(priority_queue)用法</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:47:01.240Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E6%9F%A5%E6%89%BE/">查找</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查找</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:42:58.362Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%A1%A8/">链表</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:34:43.812Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">栈和队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%AE%97%E6%B3%95%E5%BC%95%E8%A8%80/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:22:39.168Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%AE%97%E6%B3%95%E5%BC%95%E8%A8%80/">算法引言</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法引言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E6%95%A3%E5%88%97%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-09T11:15:06.782Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E6%95%A3%E5%88%97%E9%97%AE%E9%A2%98/">散列问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">散列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-09T09:33:29.671Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98/">排序问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-06T11:35:33.395Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">最小生成树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">最小生成树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/05/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/05/">1</a><a class="page-number" href="/archives/2020/05/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
+
+  
+
+  
+  
+
+
 
 
           </div>
@@ -650,8 +422,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
