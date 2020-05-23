@@ -15,14 +15,21 @@
 <meta property="og:site_name" content="Kris Hao的博客">
 <meta property="og:description" content="算法笔记-栈（stack）和队列（queue）">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523134452606.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523135026867.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523135336353.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523135518974.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523142721473.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523143207957.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523143503667.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200509202921194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020050920313696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-09T12:34:43.812Z">
-<meta property="article:modified_time" content="2020-05-09T12:35:59.864Z">
+<meta property="article:modified_time" content="2020-05-23T06:43:30.851Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="栈和队列">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200509202921194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200523134452606.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -71,7 +78,7 @@
 		</nav>
 
 		<nav>
-			<a>总文章数 32</a>
+			<a>总文章数 33</a>
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -197,6 +204,24 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="算法笔记-栈（stack）和队列（queue）"><a href="#算法笔记-栈（stack）和队列（queue）" class="headerlink" title="算法笔记-栈（stack）和队列（queue）"></a>算法笔记-栈（stack）和队列（queue）</h1><a id="more"></a>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
+<li>特点：后进先出</li>
+<li>算法基本思想：可以用一个单链表</li>
+<li>当某一个问题只关心上一次的操作，并且处理完上一次的操作后，能在O(1)时间内查找到更前一次的操作，这个时候栈就派上了最大的用场。</li>
+<li>stack：st.push(元素); //入栈<br>  st.top(); //返回栈顶元素<br>  st.pop(); //弹出栈顶元素<br>  st.size(); //计算元素个数<br>  st.empty(); //判断是否为空</li>
+</ul>
+<h3 id="例题解析"><a href="#例题解析" class="headerlink" title="例题解析"></a>例题解析</h3><p>1.<br><img src="https://img-blog.csdnimg.cn/20200523134452606.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>不断往栈顶压入左括号，一旦遇到对应的右括号，就弹出栈顶对应的左括号。然后最后如果栈顶为空则满足。否则不满足<br><img src="https://img-blog.csdnimg.cn/20200523135026867.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>2.<br><img src="https://img-blog.csdnimg.cn/20200523135336353.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当栈顶不为空时，用当前遍历到的温度和栈顶的温度进行比较，如果当前温度大于栈顶温度则弹出栈顶温度的下标，则得到栈顶温度下标下的最小天数=当前温度下标-栈顶温度下标，如果小于栈顶温度，则压入堆栈（压入的是下标）。重复依次进行下去<br><img src="https://img-blog.csdnimg.cn/20200523135518974.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><ul>
+<li>特点：先进先出</li>
+<li>算法基本思想：可以用一个双链表</li>
+<li><strong>广度优先搜索</strong>是应用队列最多的地方</li>
+<li>queue：q.push(元素); //入栈<br>  q.front(); //返回队列首元素<br>  q.back(); //返回队列尾元素<br>  q.pop(); //弹出队列首元素<br>  q.size(); //计算元素个数<br>  q.empty(); //判断是否为空<br>  还有牛逼的优先队列，专门有一篇博客讲这个</li>
+<li><strong>双端队列</strong>：队列的头尾两端能在O(1)的时间内进行数据的查看、添加和删除（也可以用双链表实现）</li>
+</ul>
+<p><strong>应用场景</strong>：实现一个长度动态变化的<strong>滑动窗口</strong>或者<strong>连续区间</strong><br><img src="https://img-blog.csdnimg.cn/20200523142721473.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="例题解析-1"><a href="#例题解析-1" class="headerlink" title="例题解析"></a>例题解析</h3><p><img src="https://img-blog.csdnimg.cn/20200523143207957.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>下面是比虽简单的O(nk)算法更好的滑动窗口的O(n)算法<br><img src="https://img-blog.csdnimg.cn/20200523143503667.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>依次扫描数组中的每一个数加入到双端队列中，每次加入之前都需要保证当前的队列的首部一定是当前的最大值。当要向队列中加入遍历到的值的时候，需要讲其前面比它小的数依次从队列尾部弹出，然后再从队列尾部加入这个数。（即保证队列始终是一个递减序列）</p>
 <h2 id="算术表达式"><a href="#算术表达式" class="headerlink" title="算术表达式"></a>算术表达式</h2><ul>
 <li>中缀表达式：运算符号位于两个运算数之间。如，a+b*c-d/e</li>
 <li>后缀表达式：运算符号位于两个运算数之后。如a b c*+de/-<h2 id="栈应用"><a href="#栈应用" class="headerlink" title="栈应用"></a>栈应用</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3>后缀表达式计算实例：<br>求解后缀表达式 6 2 / 3 - 4 2 * + = 的结果<br><img src="https://img-blog.csdnimg.cn/20200509202921194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
@@ -207,7 +232,7 @@
 </ul>
 <p><strong>1</strong>.运算符：直接输出<br><strong>2</strong>.左括号：压入stack<br><strong>3</strong>.右括号：将栈顶的运算符弹出并输出，直到弹出到左括号（出栈，不输出）<br><strong>4</strong>.运算符：若优先级大于栈顶运算符，则压入栈；若优先级小于等于栈顶运算符时，将栈顶            运算符弹出并输出；再比较新的栈顶运算符，直到该运算符大于栈顶运算符优先级为止，    然后将该运算符压入栈（平常优先级就是按照四则运算优先级，但是‘（’入栈后，优    先级变为最低）<br><strong>5</strong>.若各对象处理完毕，则把堆栈中剩下的运算符全部依次输出<br><img src="https://img-blog.csdnimg.cn/2020050920313696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="栈的其他应用"><a href="#栈的其他应用" class="headerlink" title="栈的其他应用"></a>栈的其他应用</h2><p> 函数的调用以及递归实现；深度优先搜索；回溯算法等</p>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p> 具有一定操作约束的线性表，只能在一端插入，另一端删除（先入先出，后入后出）<br>为了节省空间有了循环队列</p>
+<h2 id="队列-1"><a href="#队列-1" class="headerlink" title="队列"></a>队列</h2><p> 具有一定操作约束的线性表，只能在一端插入，另一端删除（先入先出，后入后出）<br>为了节省空间有了循环队列</p>
 
       
 
@@ -340,7 +365,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-栈（stack）和队列（queue）"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-栈（stack）和队列（queue）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#算术表达式"><span class="toc-number">1.1.</span> <span class="toc-text">算术表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈应用"><span class="toc-number">1.2.</span> <span class="toc-text">栈应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#求解思路"><span class="toc-number">1.2.2.</span> <span class="toc-text">求解思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈的其他应用"><span class="toc-number">1.3.</span> <span class="toc-text">栈的其他应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列"><span class="toc-number">1.4.</span> <span class="toc-text">队列</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-栈（stack）和队列（queue）"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-栈（stack）和队列（queue）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈"><span class="toc-number">1.1.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题解析"><span class="toc-number">1.1.1.</span> <span class="toc-text">例题解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列"><span class="toc-number">1.2.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题解析-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">例题解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算术表达式"><span class="toc-number">1.3.</span> <span class="toc-text">算术表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈应用"><span class="toc-number">1.4.</span> <span class="toc-text">栈应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#求解思路"><span class="toc-number">1.4.2.</span> <span class="toc-text">求解思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈的其他应用"><span class="toc-number">1.5.</span> <span class="toc-text">栈的其他应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列-1"><span class="toc-number">1.6.</span> <span class="toc-text">队列</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -462,15 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">完全二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hash散列，二分查找</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的遍历，深度搜索</a>
+                <a href="javascript:void(0)" class="js-tag color1">完全二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,7 +507,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树的遍历，深度搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">无向完全图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">旅行商环路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,7 +527,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">旅行商环路</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,15 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,15 +551,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">哈夫曼树和编码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
+                <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
