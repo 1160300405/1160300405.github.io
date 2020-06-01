@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C++中的输入输出 | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）">
+  <meta name="description" content="C++中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++中的输入输出">
 <meta property="og:url" content="http://yoursite.com/2020/05/22/C++%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%88scanf%EF%BC%8Cprintf%EF%BC%8Ccin%EF%BC%8Ccout%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）">
+<meta property="og:description" content="C++中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200522164048841.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200522180016717.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200522165743536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200522165814981.png">
 <meta property="article:published_time" content="2020-05-22T09:33:21.228Z">
-<meta property="article:modified_time" content="2020-05-22T10:04:51.471Z">
+<meta property="article:modified_time" content="2020-06-01T09:20:41.312Z">
 <meta property="article:author" content="Kris Hao">
 <meta property="article:tag" content="C++库函数">
 <meta name="twitter:card" content="summary">
@@ -73,7 +73,7 @@
 		</nav>
 
 		<nav>
-			<a>总文章数 44</a>
+			<a>总文章数 45</a>
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -198,7 +198,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="C-中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）"><a href="#C-中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）" class="headerlink" title="C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）"></a>C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）</h1><a id="more"></a>
+        <h1 id="C-中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）"><a href="#C-中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）" class="headerlink" title="C++中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）"></a>C++中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）</h1><a id="more"></a>
 <h1 id="cin和cout"><a href="#cin和cout" class="headerlink" title="cin和cout"></a>cin和cout</h1><h2 id="1-cin-lt-lt"><a href="#1-cin-lt-lt" class="headerlink" title="1.cin&lt;&lt;"></a>1.cin&lt;&lt;</h2><p><strong>cin是自动判断你的变量类型</strong><br>该操作符是根据后面变量的类型读取数据。<br>输入结束条件   ：遇到<strong>Enter</strong>、<strong>Space</strong>、<strong>Tab</strong>键。<br>对结束符的处理 ：丢弃缓冲区中使得输入结束的结束符(Enter、Space、Tab)</p>
 <h2 id="2-cout-gt-gt"><a href="#2-cout-gt-gt" class="headerlink" title="2.cout&gt;&gt;"></a>2.cout&gt;&gt;</h2><p><strong>cout也是自动根据你的变量的本身类型自动识别并且进行输出</strong></p>
 <h2 id="3-代码样例"><a href="#3-代码样例" class="headerlink" title="3.代码样例"></a>3.代码样例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;            </span><br><span class="line">	<span class="keyword">char</span> c, d, e, f;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;c&gt;&gt;d&gt;&gt;e&gt;&gt;f&gt;&gt;s;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;d&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;e&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;f&lt;&lt;<span class="string">"   "</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;s;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -219,12 +219,13 @@ world!
 <p>简单来说就是，它返回已成功赋值的数据项数；出错时则返回<strong>EOF.</strong></p>
 <p><strong>（注：EOF(End Of File)是一个预定义的常量，等于-1）</strong></p>
 <h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p>printf的多种输出格式，在同分类的博客里有分析到，重点记住前面自动补数的输出，已经string类型的printf输出方法，用string.c_str()方法。还有比如保留小数点后3位的输出方法printf(“%.3f”, fn).</p>
-<h1 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h1><p>基本说明：<br>　　gets()函数用来从标准输入设备（键盘）读取字符串<strong>直到换行符结束</strong>，但换行符会被丢弃，然后在末尾添加’\0’字符。包含在头文件&lt;stdio.h&gt;中。<br>　　gets(s)函数与 scanf(“%s”,&amp;s) 相似，但不完全相同，使用scanf(“%s”,&amp;s) 函数输入字符串时存在一个问题，就是如果输入了空格会认为字符串结束，空格后的字符将作为下一个输入项处理，但gets()函数将接收输入的整个字符串直到遇到换行为止。<br>原型：<br>　　char *gets(char *buffer);</p>
+<h1 id="gets-char-和getline-cin-string"><a href="#gets-char-和getline-cin-string" class="headerlink" title="gets(char *[])和getline(cin, string)"></a>gets(char *[])和getline(cin, string)</h1><h2 id="gets-char-基本说明："><a href="#gets-char-基本说明：" class="headerlink" title="gets(char *[])基本说明："></a>gets(char *[])基本说明：</h2><p>　　gets()函数用来从标准输入设备（键盘）读取字符串<strong>直到换行符结束</strong>，但换行符会被丢弃，然后在末尾添加’\0’字符。包含在头文件&lt;stdio.h&gt;中。<br>　　gets(s)函数与 scanf(“%s”,&amp;s) 相似，但不完全相同，使用scanf(“%s”,&amp;s) 函数输入字符串时存在一个问题，就是如果输入了空格会认为字符串结束，空格后的字符将作为下一个输入项处理，但gets()函数将接收输入的整个字符串直到遇到换行为止。<br>原型：<br>　　char<em>gets(char</em>buffer);</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">　　<span class="keyword">char</span> str1[<span class="number">20</span>], str2[<span class="number">20</span>];</span><br><span class="line">　　gets(str1); </span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str1);  </span><br><span class="line">　　gets(str2); </span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str2); </span><br><span class="line">　　<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <pre><code>输入：Hello world!    
 输出：Hello world!    
 输入：12345      
-输出：12345</code></pre><h1 id="sscanf和sprintf"><a href="#sscanf和sprintf" class="headerlink" title="sscanf和sprintf"></a>sscanf和sprintf</h1><p>用于处理和分析字符串非常强大得两个函数</p>
+输出：12345</code></pre><h2 id="getline-cin-string"><a href="#getline-cin-string" class="headerlink" title="getline(cin, string)"></a>getline(cin, string)</h2><p>个人更为推荐使用getline来进行字符串的读入，因为它同样可以忽略空格按照行读取数据，同时它还可以直接将读取到的行直接赋给string类型的字符串，而不用像上面的gets一样还需要首先读取到char数组，然后再赋值给string。</p>
+<h1 id="sscanf和sprintf"><a href="#sscanf和sprintf" class="headerlink" title="sscanf和sprintf"></a>sscanf和sprintf</h1><p>用于处理和分析字符串非常强大得两个函数</p>
 <h2 id="sscanf"><a href="#sscanf" class="headerlink" title="sscanf"></a>sscanf</h2><p>sscanf是一个很好用的函数，利用它可以从字符串中取出整数、浮点数和字符串等等。它的使用方法简单，特别对于整数和浮点数来说。但可能不知道处理字符串时的一些高级用法，这里做个简要说明吧。</p>
 <ul>
 <li>常见用法。<br>以下是引用片段：</li>
@@ -402,7 +403,7 @@ world!
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）"><span class="toc-number">1.</span> <span class="toc-text">C++中的输入输出（scanf，printf，cin，cout，gets，sscanf，sprintf）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cin和cout"><span class="toc-number">2.</span> <span class="toc-text">cin和cout</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cin-lt-lt"><span class="toc-number">2.1.</span> <span class="toc-text">1.cin&lt;&lt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cout-gt-gt"><span class="toc-number">2.2.</span> <span class="toc-text">2.cout&gt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-代码样例"><span class="toc-number">2.3.</span> <span class="toc-text">3.代码样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#scanf和printf"><span class="toc-number">3.</span> <span class="toc-text">scanf和printf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#scanf"><span class="toc-number">3.1.</span> <span class="toc-text">scanf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#scanf-的返回值"><span class="toc-number">3.1.1.</span> <span class="toc-text">scanf( )的返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf"><span class="toc-number">3.2.</span> <span class="toc-text">printf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gets"><span class="toc-number">4.</span> <span class="toc-text">gets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sscanf和sprintf"><span class="toc-number">5.</span> <span class="toc-text">sscanf和sprintf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sscanf"><span class="toc-number">5.1.</span> <span class="toc-text">sscanf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sprintf"><span class="toc-number">5.2.</span> <span class="toc-text">sprintf</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）"><span class="toc-number">1.</span> <span class="toc-text">C++中的输入输出（scanf，printf，cin，cout，gets，getline，sscanf，sprintf）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cin和cout"><span class="toc-number">2.</span> <span class="toc-text">cin和cout</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cin-lt-lt"><span class="toc-number">2.1.</span> <span class="toc-text">1.cin&lt;&lt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cout-gt-gt"><span class="toc-number">2.2.</span> <span class="toc-text">2.cout&gt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-代码样例"><span class="toc-number">2.3.</span> <span class="toc-text">3.代码样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#scanf和printf"><span class="toc-number">3.</span> <span class="toc-text">scanf和printf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#scanf"><span class="toc-number">3.1.</span> <span class="toc-text">scanf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#scanf-的返回值"><span class="toc-number">3.1.1.</span> <span class="toc-text">scanf( )的返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf"><span class="toc-number">3.2.</span> <span class="toc-text">printf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gets-char-和getline-cin-string"><span class="toc-number">4.</span> <span class="toc-text">gets(char *[])和getline(cin, string)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gets-char-基本说明："><span class="toc-number">4.1.</span> <span class="toc-text">gets(char *[])基本说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getline-cin-string"><span class="toc-number">4.2.</span> <span class="toc-text">getline(cin, string)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sscanf和sprintf"><span class="toc-number">5.</span> <span class="toc-text">sscanf和sprintf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sscanf"><span class="toc-number">5.1.</span> <span class="toc-text">sscanf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sprintf"><span class="toc-number">5.2.</span> <span class="toc-text">sprintf</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -516,7 +517,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">动态规划，最大连续子序列和</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">动态规划，最长回文子串</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
+                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hash散列，二分查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +545,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">完全二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hash散列，二分查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,19 +557,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的遍历，深度搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">最近公共祖先</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">欧拉图，并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">STL排序，unordered_map</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,7 +565,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树的遍历，深度搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">旅行商环路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">最近公共祖先</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">STL排序，unordered_map</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,15 +597,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,10 +613,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前缀树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">哈夫曼树和编码</a>
               </li>
              
@@ -624,7 +621,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">拓扑排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">前缀树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,7 +645,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,15 +657,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +665,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">优先队列</a>
+                <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+                <a href="javascript:void(0)" class="js-tag color5">优先队列</a>
               </li>
             
             <div class="clearfix"></div>
