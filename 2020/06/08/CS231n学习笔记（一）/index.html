@@ -6,42 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图 | Kris Hao的博客</title>
+  <title>CS231n学习笔记（一） | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法笔记-图">
+  <meta name="description" content="CS231n（一）：导言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图">
-<meta property="og:url" content="http://yoursite.com/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%9B%BE/index.html">
+<meta property="og:title" content="CS231n学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2020/06/08/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="算法笔记-图">
+<meta property="og:description" content="CS231n（一）：导言">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/202005231605107.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523160644774.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523160854615.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020050921551884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215527897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509221045217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509221104129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509221140171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509221235688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215601481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215621534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215644982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215712315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020050921571987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020050921572658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215751423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215906562.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215921162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215944260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509215956829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200509220023150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-09T14:12:53.814Z">
-<meta property="article:modified_time" content="2020-05-23T08:10:25.865Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200608161220538.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200608161913951.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-08T08:48:48.429Z">
+<meta property="article:modified_time" content="2020-06-08T08:52:35.338Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="图">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/202005231605107.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200608161220538.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -188,20 +169,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法笔记-图" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CS231n学习笔记（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图
+      CS231n学习笔记（一）
     </h1>
   
 
         
-        <a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2020-05-09T14:12:53.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+        <a href="/2020/06/08/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-06-08T08:48:48.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
 </a>
         
         
@@ -215,30 +196,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="算法笔记-图"><a href="#算法笔记-图" class="headerlink" title="算法笔记-图"></a>算法笔记-图</h1><a id="more"></a>
-<p><img src="https://img-blog.csdnimg.cn/202005231605107.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200523160644774.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上面的二部图实际上也叫做<strong>二分图</strong>，即可以将图的所有顶点分成两个子集，每一个子集里的顶点互不相连。</p>
-<ul>
-<li>典型例题<br><img src="https://img-blog.csdnimg.cn/20200523160854615.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+        <h1 id="CS231n（一）：导言"><a href="#CS231n（一）：导言" class="headerlink" title="CS231n（一）：导言"></a>CS231n（一）：导言</h1><a id="more"></a>
+
+<h1 id="1-1-计算机视觉概述"><a href="#1-1-计算机视觉概述" class="headerlink" title="1.1 计算机视觉概述"></a>1.1 计算机视觉概述</h1><ul>
+<li>视觉数据量非常庞大，且非常难以让计算机理解</li>
+<li>算法很难探知并理解视觉数据</li>
+<li>计算机视觉是一个跨学科的领域</li>
+<li>这个课程主要是针对用<strong>CNN</strong>应用于各种<strong>视觉识别的任务</strong></li>
 </ul>
-<h2 id="图的数据结构表示"><a href="#图的数据结构表示" class="headerlink" title="图的数据结构表示"></a>图的数据结构表示</h2><h3 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h3><p>矩阵对角线为0，同一个顶点之间没有边，无向图的邻接矩阵表示法，是对称矩阵，一半的空间被浪费掉了。可以用一个长度为N（N+1)/2的一维数组来只存储对称矩阵中的一半的关系，G（i，j）在这个一维矩阵中的下标是（i*（i+1）/ 2 + j）</p>
-<ul>
-<li>缺陷：在存稀疏图（顶点很多，边很少），非常的浪费空间以及时间。而对于稠密图（如完全图）而言，比较划算</li>
+<h1 id="1-2计算机视觉历史背景"><a href="#1-2计算机视觉历史背景" class="headerlink" title="1.2计算机视觉历史背景"></a>1.2计算机视觉历史背景</h1><ul>
+<li><p>1963年Larry发表了计算机视觉的第一篇博士论文，将视觉世界简化为简单的几何形状</p>
+</li>
+<li><p>1966年MIT发布了一个视觉项目的暑期研究</p>
+</li>
+<li><p>现在也还没有彻底弄清楚人类视力的原理</p>
+</li>
+<li><p>之前十几年众多科学家都在研究如何解决物体识别的问题，很多也只停留在简单样本阶段</p>
+</li>
+<li><p>过去由于样本很少，没有产生很大的进展</p>
+</li>
+<li><p>由于<strong>目标识别</strong>很难，那么首先要做的就是<strong>目标分割</strong></p>
+</li>
+<li><p>目标分割：把一张图片中的像素点归类到有意义的区域（早期的创造性工作，用一个图算法对图像进行分割）</p>
+</li>
+<li><p>统计学习在2000左右快速发展：SVM，boosting方法，图模型等等，做出了很大贡献，如用<em>AdaBoost算法<em>进行了</em>实时面部检测</em></p>
+</li>
+<li><p>基于上面的实际应用的转化：富士通根据上面设计了第一个可以人脸识别的相机</p>
+</li>
+<li><p><strong>PASCAL Visual Object Challenge标注数据集</strong>的提出加快了21世纪CV的发展（20个类别）</p>
+</li>
+<li><p>训练数据量不够时，很快会产生过拟合的现象</p>
+</li>
+<li><p>所以要克服机器学习的瓶颈–过拟合问题</p>
+</li>
+<li><p>于是诞生了<strong>ImageNet</strong>项目（汇集所有能找到的图片，包含万物，组建一个尽可能大的数据集），耗时三年完成。</p>
+</li>
+<li><p>ImageNet提出将目标检测算法的发展推到一个新的高度</p>
+</li>
+<li><p>ImageNet大赛催生了一个伟大的卷积神经网络，发现基本表现好的算法都是基于CNN做的。</p>
+<h1 id="1-3-课程简介"><a href="#1-3-课程简介" class="headerlink" title="1.3 课程简介"></a>1.3 课程简介</h1></li>
+<li><p>首先<strong>图像分类</strong>问题，也就是ImageNet挑战赛中的一些好的算法设计思想讲解，基本都是基于卷积神经网络做的好</p>
+</li>
+<li><p>接下来是<strong>目标检测</strong>：不同于图像分类，需要用方框标识出一幅图像中的特定物体的分类以及位置</p>
+</li>
+<li><p><strong>图像摘要</strong>：由图像自动生成一段文字摘要来描述这幅图像</p>
+</li>
+<li><p>历届ImageNet挑战赛表现最好的网络<br><img src="https://img-blog.csdnimg.cn/20200608161220538.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从12年的AlexNet开始所有获胜的基本都是基于CNN做的（也就是CNN兴起于2012年）</p>
+</li>
+<li><p>CNN不是12年才被发明的，可以追溯到1998利用CNN进行手写数字识别，但是12才被挖掘出来用，因为计算硬件能力上的提升</p>
+</li>
 </ul>
-<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><p>表示法不唯一，不讲究顺序，一定要够稀疏才划算。<br><img src="https://img-blog.csdnimg.cn/2020050921551884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200509215527897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200509221045217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200509221104129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200509221140171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200509221235688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><h3 id="DFS（相当于树的先序遍历）"><a href="#DFS（相当于树的先序遍历）" class="headerlink" title="DFS（相当于树的先序遍历）"></a>DFS（相当于树的先序遍历）</h3><p><img src="https://img-blog.csdnimg.cn/20200509215601481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="BFS（相当于树的层序遍历）"><a href="#BFS（相当于树的层序遍历）" class="headerlink" title="BFS（相当于树的层序遍历）"></a>BFS（相当于树的层序遍历）</h3><p><img src="https://img-blog.csdnimg.cn/20200509215621534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="图的连通性"><a href="#图的连通性" class="headerlink" title="图的连通性"></a>图的连通性</h2><h3 id="连通分量"><a href="#连通分量" class="headerlink" title="连通分量"></a>连通分量</h3><p><img src="https://img-blog.csdnimg.cn/20200509215644982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200509215712315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/2020050921571987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/2020050921572658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="图的问题实战-拯救007"><a href="#图的问题实战-拯救007" class="headerlink" title="图的问题实战-拯救007"></a>图的问题实战-拯救007</h2><p>让位于中心的007能够踩着点最终回到岸上，要求每次跳跃点都需要在他跳跃的能力之内<br><img src="https://img-blog.csdnimg.cn/20200509215751423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>算法设计<br><img src="https://img-blog.csdnimg.cn/20200509215906562.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200509215921162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="图的问题实战-六度空间（BFS）"><a href="#图的问题实战-六度空间（BFS）" class="headerlink" title="图的问题实战-六度空间（BFS）"></a>图的问题实战-六度空间（BFS）</h2><p>问题描述<br><img src="https://img-blog.csdnimg.cn/20200509215944260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>算法设计<br><img src="https://img-blog.csdnimg.cn/20200509215956829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200509220023150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200608161913951.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">- 如何通过一幅图片不仅仅完成分类的任务，还能够对于其中例如人的动作信息，人的面部表情信息进行一幅图片的深刻理解是现在计算机视觉的圣杯，还有很长的路要走</p>
 
       
 
@@ -252,7 +260,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -264,7 +272,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/深度学习/CS231n学习//" class="article-tag-list-link color4">CS231n学习</a>
         		</li>
       		
 		</ul>
@@ -319,7 +331,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%9B%BE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/08/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -333,18 +345,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/12/c++%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84printf%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C++中常用的printf自定义输出格式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%9B%86%E5%90%88%E5%8F%8A%E5%B9%B6%E6%9F%A5%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">集合及并查集</div>
+    <a href="/2020/06/03/Pycharm%20%E4%B8%AD%E4%BD%BF%E7%94%A8os.system()%E3%80%81subprocess%E7%AD%89%E8%B0%83%E7%94%A8shell%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0sh_l_XXX%20not%20found%E9%94%99%E8%AF%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pycharm 中使用os.system()、subprocess等调用shell命令出现sh:l:XXX not found</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -371,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法笔记-图"><span class="toc-number">1.</span> <span class="toc-text">算法笔记-图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#图的数据结构表示"><span class="toc-number">1.1.</span> <span class="toc-text">图的数据结构表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#邻接矩阵"><span class="toc-number">1.1.1.</span> <span class="toc-text">邻接矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邻接表"><span class="toc-number">1.1.2.</span> <span class="toc-text">邻接表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图的遍历"><span class="toc-number">1.2.</span> <span class="toc-text">图的遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DFS（相当于树的先序遍历）"><span class="toc-number">1.2.1.</span> <span class="toc-text">DFS（相当于树的先序遍历）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFS（相当于树的层序遍历）"><span class="toc-number">1.2.2.</span> <span class="toc-text">BFS（相当于树的层序遍历）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图的连通性"><span class="toc-number">1.3.</span> <span class="toc-text">图的连通性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#连通分量"><span class="toc-number">1.3.1.</span> <span class="toc-text">连通分量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图的问题实战-拯救007"><span class="toc-number">1.4.</span> <span class="toc-text">图的问题实战-拯救007</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图的问题实战-六度空间（BFS）"><span class="toc-number">1.5.</span> <span class="toc-text">图的问题实战-六度空间（BFS）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS231n（一）：导言"><span class="toc-number">1.</span> <span class="toc-text">CS231n（一）：导言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-计算机视觉概述"><span class="toc-number">2.</span> <span class="toc-text">1.1 计算机视觉概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2计算机视觉历史背景"><span class="toc-number">3.</span> <span class="toc-text">1.2计算机视觉历史背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-课程简介"><span class="toc-number">4.</span> <span class="toc-text">1.3 课程简介</span></a></li></ol>
                     </div>
                 </span>
             </div>
