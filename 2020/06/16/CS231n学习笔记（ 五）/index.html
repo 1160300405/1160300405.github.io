@@ -6,22 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数组 | Kris Hao的博客</title>
+  <title>CS231n学习笔记（五） | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法学习-数组">
+  <meta name="description" content="CS231n学习笔记（ 五）：卷积神经网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组">
-<meta property="og:url" content="http://yoursite.com/2020/05/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="CS231n学习笔记（五）">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%20%E4%BA%94%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="算法学习-数组">
+<meta property="og:description" content="CS231n学习笔记（ 五）：卷积神经网络">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200523123029195.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-23T04:35:36.759Z">
-<meta property="article:modified_time" content="2020-05-23T07:04:38.869Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616121326347.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616122236897.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616122852489.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616123201284.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020061612331424.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616123940585.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616132259305.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616124807501.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616131106732.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616130458355.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020061613112112.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200616132022918.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-16T05:23:07.023Z">
+<meta property="article:modified_time" content="2020-06-16T05:24:02.975Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="数组">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200523123029195.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200616121326347.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -168,20 +179,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法学习-数组" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CS231n学习笔记（ 五）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数组
+      CS231n学习笔记（五）
     </h1>
   
 
         
-        <a href="/2020/05/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-05-23T04:35:36.759Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+        <a href="/2020/06/16/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%20%E4%BA%94%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-06-16T05:23:07.023Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
 </a>
         
         
@@ -195,13 +206,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="算法学习-数组"><a href="#算法学习-数组" class="headerlink" title="算法学习-数组"></a>算法学习-数组</h1><a id="more"></a>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>构建一个数组非常简单<br>能让我们在O(1)的时间里根据数组下标（index）查询某个元素</p>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>构建时必须分配一段连续的空间，<br>查询某个元素是否存在时需要遍历整个数组，耗费O(n)时间（其中，n是元素的个数）<br>删除和添加某个元素时，同样需要耗费O(n)时间</p>
-<h2 id="例题解析"><a href="#例题解析" class="headerlink" title="例题解析"></a>例题解析</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目<img src="https://img-blog.csdnimg.cn/20200523123029195.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></h3><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>由于字符串中只包含小写的字母，所以只要26个字母的可能性，故可以将从a到z的字符映射为大小为26的数组的下标，而数组值来统计字符个数。</p>
+        <h1 id="CS231n学习笔记（-五）：卷积神经网络"><a href="#CS231n学习笔记（-五）：卷积神经网络" class="headerlink" title="CS231n学习笔记（ 五）：卷积神经网络"></a>CS231n学习笔记（ 五）：卷积神经网络</h1><a id="more"></a>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><ul>
+<li>卷积神经网络网络与常规神经网络的构想基本一致，不同的是需要训练卷积层，因为<em>卷积层更能保留输入的空间结构</em>。</li>
+</ul>
+<h2 id="卷积和池化"><a href="#卷积和池化" class="headerlink" title="卷积和池化"></a>卷积和池化</h2><ul>
+<li><p><strong>全连接层</strong>：32x32x3的图片展开成一维向量，然后乘上W权重矩阵，得到一个分类结果向量<br><img src="https://img-blog.csdnimg.cn/20200616121326347.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>全连接层也就是卷积神经网络最后，不需要再保全之前的空间结构了，而是在最后一层，把所有的内容都汇聚到一起，然后根据这些内容信息，得到一些结论（如图像分类等）。</p>
+</li>
+<li><p><strong>卷积层</strong>：不同于全连接层需要将三维图片数据展开成长的一维向量，卷积层可以直接对原始图像数据直接进行处理（故能够更好保留输入的空间结构）<br><img src="https://img-blog.csdnimg.cn/20200616122236897.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>让filter遍历每一个空间位置（多少个位置取决于步长），filter的厚度（channels）一定是和输入的数据张量是一样的channel数量（本例中为3），每一次计算都是点积然后求和，也就是遍历到的每一个位置，求出来的都是一个数。</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200616122852489.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>上图每一个filter都会产生一个activation map（28x28），6个filter就会产生6个activation maps（用filter遍历点积后，然后再用激活函数激活之后，如用ReLU）。每一个filter一般都是提取出图像不同的特征信息（如边缘，色彩等等）</p>
+<p><img src="https://img-blog.csdnimg.cn/20200616123201284.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <ul>
-<li>解法一<br>可以开两个数组分别统计，最后数组中每个下标对应的值相等，即两个字符串为异位词。</li>
-<li>解法二<br>这种解法只需要开一个26大小的数组，统计第一个的时候，对应字符下标的值++，而统计第二个的时候–。如果最后数组中每个值都为0，则为异位词，否则不是。</li>
+<li><p>不同层次的特征矩阵的特征图像<br><img src="https://img-blog.csdnimg.cn/2020061612331424.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>一个分类判别的卷积神经网络</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200616123940585.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>输入大小，卷积核大小，步长，填充个数，输出大小之间的计算公式<br><img src="https://img-blog.csdnimg.cn/20200616132259305.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>1x1的卷积核（只在深度方向上做点积）</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200616124807501.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>卷积核能够只与图像数据中的一部分发生联系，而不像全连接层对于全体数据都进行计算联系。</p>
+</li>
+<li><p>卷积层的作用是为了最后有更少的参数，如减少最后全连接层的参数个数。</p>
+</li>
+<li><p><strong>池化层</strong>：做下<img src="https://img-blog.csdnimg.cn/20200616131106732.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">采样（downsampling）处理，并且降采样池化处理只做平面上的，而不做深度方向上的，<strong>也就是深度不变，平面面积降低。</strong></p>
+</li>
+<li><p>最大池化层<img src="https://img-blog.csdnimg.cn/20200616130458355.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>池化层一般会尽量采用<em>比较大的步长</em>，从而让遍历到的区域数据<em>尽量不重叠</em>，单独处理。</p>
+</li>
+<li><p><strong>均值池化</strong>一般用的不如最大池化多</p>
+</li>
+<li><p>池化层的输入输出计算公式（<em>一般不在池化层做填充零操作</em>，因为它只做下采样）<br><img src="https://img-blog.csdnimg.cn/2020061613112112.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>一个卷积神经网络的<strong>演示程序</strong>，把卷积核的模样，激活图（activation map）长什么样都画出来了<img src="https://img-blog.csdnimg.cn/20200616132022918.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
 </ul>
 
       
@@ -216,7 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -228,7 +276,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构与算法学习//" class="article-tag-list-link color5">数据结构与算法学习</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/深度学习/CS231n学习//" class="article-tag-list-link color4">CS231n学习</a>
         		</li>
       		
 		</ul>
@@ -283,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/16/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%20%E4%BA%94%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -297,18 +349,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/23/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88Priority%20Queue%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          优先队列（Priority Queue）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/22/PTA1130-%E6%A0%91%E7%9A%84%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PTA1130：树的中缀表达式</div>
+    <a href="/2020/06/13/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CS231n学习笔记（四）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -335,7 +378,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法学习-数组"><span class="toc-number">1.</span> <span class="toc-text">算法学习-数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#优点"><span class="toc-number">1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺点"><span class="toc-number">1.2.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题解析"><span class="toc-number">1.3.</span> <span class="toc-text">例题解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路"><span class="toc-number">1.3.2.</span> <span class="toc-text">解题思路</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS231n学习笔记（-五）：卷积神经网络"><span class="toc-number">1.</span> <span class="toc-text">CS231n学习笔记（ 五）：卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#历史"><span class="toc-number">1.1.</span> <span class="toc-text">历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积和池化"><span class="toc-number">1.2.</span> <span class="toc-text">卷积和池化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
