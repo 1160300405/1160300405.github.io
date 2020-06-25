@@ -6,23 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PTA1115：构建二叉搜索树（BST），并且dfs遍历 | Kris Hao的博客</title>
+  <title>CS231n学习笔记（七） | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="顺序读入逐个节点构建BST">
+  <meta name="description" content="CS231n学习笔记（七）：激活函数和批量归一化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTA1115：构建二叉搜索树（BST），并且dfs遍历">
-<meta property="og:url" content="http://yoursite.com/2020/04/22/PTA1115/index.html">
+<meta property="og:title" content="CS231n学习笔记（七）">
+<meta property="og:url" content="http://yoursite.com/2020/06/25/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="顺序读入逐个节点构建BST">
+<meta property="og:description" content="CS231n学习笔记（七）：激活函数和批量归一化">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-04-21T16:04:38.379Z">
-<meta property="article:modified_time" content="2020-05-17T12:02:10.360Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625150838901.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020062515240510.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625153833197.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625160657625.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-25T08:10:10.557Z">
+<meta property="article:modified_time" content="2020-06-25T08:12:39.000Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="树的遍历">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200625150838901.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -169,20 +171,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PTA1115" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CS231n学习笔记（七）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PTA1115：构建二叉搜索树（BST），并且dfs遍历
+      CS231n学习笔记（七）
     </h1>
   
 
         
-        <a href="/2020/04/22/PTA1115/" class="archive-article-date">
-  	<time datetime="2020-04-21T16:04:38.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+        <a href="/2020/06/25/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-06-25T08:10:10.557Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25</time>
 </a>
         
         
@@ -196,18 +198,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="顺序读入逐个节点构建BST"><a href="#顺序读入逐个节点构建BST" class="headerlink" title="顺序读入逐个节点构建BST"></a>顺序读入逐个节点构建BST</h1><a id="more"></a>
-<h2 id="题目及测试样例"><a href="#题目及测试样例" class="headerlink" title="题目及测试样例"></a>题目及测试样例</h2><ul>
-<li>题目<br><img src="https://img-blog.csdnimg.cn/20200421235507640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="题目"></li>
-<li>测试样例<br><img src="https://img-blog.csdnimg.cn/20200421235521156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="测试样例"><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2>定义全局变量:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; num(<span class="number">1000</span>);<span class="comment">//统计每一层节点个数的向量，下标为层数，值为这一层节点个数</span></span><br><span class="line">int maxdepth = <span class="number">0</span>;<span class="comment">//最后BST树的深度（最大深度）</span></span><br></pre></td></tr></table></figure>
-由于要求BST深度，故必定要建立BST树，故首先定义树中节点：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">    int v;</span><br><span class="line">    node *left=NULL, *right=NULL;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-根据顺序输入节点，建树函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node* build(node *root, int v) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == NULL) &#123;</span><br><span class="line">        root = <span class="keyword">new</span> node();<span class="comment">//新建一个结构体的new方法，返回的是此新建结构体对象的指针</span></span><br><span class="line">        root-&gt;v = v;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(v &lt;= root-&gt;v)</span><br><span class="line">        root-&gt;left = build(root-&gt;left, v);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        root-&gt;right = build(root-&gt;right, v);</span><br><span class="line">     <span class="comment">//递归建立BST</span></span><br><span class="line">    <span class="keyword">return</span> root;<span class="comment">//最后返回当前根节点，自然最外层递归返回的就是最初始的根节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-由dfs得到树的最大深度以及每个节点深度的函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> dfs(node *root, int depth) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == NULL) &#123;</span><br><span class="line">        maxdepth = max(depth, maxdepth);</span><br><span class="line">       <span class="comment">//由于递归到了叶子节点，故需要更新一下树的最大深度</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    num[depth]++;<span class="comment">//由于root == NULL不成立，说明当前节点存在，即当前节点深度节点个数，需要加上当前一个节点</span></span><br><span class="line">    dfs(root-&gt;left, depth + <span class="number">1</span>);</span><br><span class="line">    dfs(root-&gt;right, depth + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//分别左右子树进行递归求深度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-主函数：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    int n, t;</span><br><span class="line">    scanf(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    node *root = NULL;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">        root = build(root, t);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root, <span class="number">0</span>);</span><br><span class="line">    printf(<span class="string">"%d + %d = %d"</span>, num[maxdepth<span class="number">-1</span>], num[maxdepth<span class="number">-2</span>], num[maxdepth<span class="number">-1</span>]+num[maxdepth<span class="number">-2</span>]);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="CS231n学习笔记（七）：激活函数和批量归一化"><a href="#CS231n学习笔记（七）：激活函数和批量归一化" class="headerlink" title="CS231n学习笔记（七）：激活函数和批量归一化"></a>CS231n学习笔记（七）：激活函数和批量归一化</h1><a id="more"></a>
+<h2 id="更好的优化算法"><a href="#更好的优化算法" class="headerlink" title="更好的优化算法"></a>更好的优化算法</h2><ul>
+<li>SGD存在的问题：1.对某一个方向的梯度非常敏感（梯度都很大），而另一个方向的梯度非常不敏感（梯度都很小），那么整体梯度下降更新的过程就会很缓慢，类似于下图一个之字型下降。（在高维度空间中这个问题更为普遍出现）<br><img src="https://img-blog.csdnimg.cn/20200625150838901.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2.会卡在局部最小值（鞍点），由于梯度为0，不在进行更新。</li>
+</ul>
+<ul>
+<li><p>SGD+Momentum：初速度（速度实际上定义为梯度的一个加权和，可看做最近梯度平均的平滑移动）设为0，之后随着下滑增加。</p>
+</li>
+<li><p>AdaGrad：<img src="https://img-blog.csdnimg.cn/2020062515240510.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>RMSProp（类似于前面的momentum方法，加一个比率下降）</p>
+</li>
+<li><p><strong>Adam（合并了momentum和RMSProp的优点）：它的表现基本上是最好的，可以设为默认算法</strong>，<strong>默认将β1设置为0.9，β2设置为0.999，学习率为1e-3或者5e-4 ，适用于无论什么网络架构。首选Adam</strong></p>
+</li>
+<li><p>学习率的设置方法也采用衰减的方法是比较好的，也就是一开始大，后面衰减（属于二阶超参数，一开始不推荐用衰减，先将一阶超参数用完再说）<br><img src="https://img-blog.csdnimg.cn/20200625153833197.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>多个模型的集成会有一个好的效果，比如训练出十个分类网络模型，然后再结合每个模型再进行投票选出最终结果。（防止过拟合，但是代价很高，每次都要跑十个模型，正则化是一个更好的选择）</p>
 </li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>重点理解递归建立BST过程逻辑，以及深搜求深度逻辑</p>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><ul>
+<li>在损失函数中加入正则项</li>
+<li>在神经网络中采用Dropout：在每次正向传播中将一些激活函数置零</li>
+<li>在神经网络中采用Dropconnect：不同于Dropout的是，不将激活函数置零，而是随机将权重矩阵的一些值置零</li>
+<li>一些不太常用的但想法不错：随机池化、训练时随机丢弃部分层，测试时用全部层</li>
+<li>一般使用batch normalization就够了，如果还过拟合的话，再加入dropout或其他一些东西。<h2 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h2></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200625160657625.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
 
@@ -221,7 +237,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树的遍历</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -233,11 +249,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题//" class="article-tag-list-link color5">算法刷题</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题/PTA-树//" class="article-tag-list-link color1">PTA-树</a>
+        			<a href="/categories/深度学习/CS231n学习//" class="article-tag-list-link color4">CS231n学习</a>
         		</li>
       		
 		</ul>
@@ -292,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/22/PTA1115/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/25/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/26/%E5%9F%BA%E4%BA%8EDepthwise%20Separable%E5%8D%B7%E7%A7%AF%E6%94%B9%E5%86%99%E7%9A%84AlexNet/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Depthwise Separable卷积
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/21/PTA1138/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PTA1138:二叉树遍历，前中序转后序</div>
+    <a href="/2020/06/20/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB%E6%96%B9%E5%90%91%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CVPR2020论文笔记-风格迁移方向（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#顺序读入逐个节点构建BST"><span class="toc-number">1.</span> <span class="toc-text">顺序读入逐个节点构建BST</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目及测试样例"><span class="toc-number">1.1.</span> <span class="toc-text">题目及测试样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS231n学习笔记（七）：激活函数和批量归一化"><span class="toc-number">1.</span> <span class="toc-text">CS231n学习笔记（七）：激活函数和批量归一化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#更好的优化算法"><span class="toc-number">1.1.</span> <span class="toc-text">更好的优化算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则化"><span class="toc-number">1.2.</span> <span class="toc-text">正则化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移学习"><span class="toc-number">1.3.</span> <span class="toc-text">迁移学习</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
