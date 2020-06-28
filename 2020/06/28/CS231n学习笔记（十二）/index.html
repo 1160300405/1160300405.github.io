@@ -6,23 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PTA1110：判断完全二叉树 | Kris Hao的博客</title>
+  <title>CS231n学习笔记（十二） | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PTA1110-判断是否为完全二叉树">
+  <meta name="description" content="CS231n学习笔记（十二）：特征可视化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTA1110：判断完全二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/05/22/PTA1110-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:title" content="CS231n学习笔记（十二）">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="PTA1110-判断是否为完全二叉树">
+<meta property="og:description" content="CS231n学习笔记（十二）：特征可视化">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522173717122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522174151835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-22T09:54:46.500Z">
-<meta property="article:modified_time" content="2020-05-22T09:56:03.386Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200628154733456.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200628155622566.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200628230919404.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200628231016406.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200628231314977.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200628231200545.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-28T15:14:23.257Z">
+<meta property="article:modified_time" content="2020-06-28T15:15:32.891Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="完全二叉树">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200522173717122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200628154733456.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -169,20 +173,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PTA1110-判断是否为完全二叉树" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CS231n学习笔记（十二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PTA1110：判断完全二叉树
+      CS231n学习笔记（十二）
     </h1>
   
 
         
-        <a href="/2020/05/22/PTA1110-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-22T09:54:46.500Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+        <a href="/2020/06/28/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-06-28T15:14:23.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
 </a>
         
         
@@ -196,16 +200,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PTA1110-判断是否为完全二叉树"><a href="#PTA1110-判断是否为完全二叉树" class="headerlink" title="PTA1110-判断是否为完全二叉树"></a>PTA1110-判断是否为完全二叉树</h1><a id="more"></a>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="https://img-blog.csdnimg.cn/20200522173717122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<ul>
-<li>题目大意<br>给出一个n个结点的树，且这n个结点值为0~n-1，同时给出这n个结点的左右孩子，判断这n个结点构成的是不是完全二叉树</li>
+        <h1 id="CS231n学习笔记（十二）：特征可视化"><a href="#CS231n学习笔记（十二）：特征可视化" class="headerlink" title="CS231n学习笔记（十二）：特征可视化"></a>CS231n学习笔记（十二）：特征可视化</h1><a id="more"></a>
+<h2 id="上节课总结回顾"><a href="#上节课总结回顾" class="headerlink" title="上节课总结回顾"></a>上节课总结回顾</h2><p><img src="https://img-blog.csdnimg.cn/20200628154733456.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt></p>
+<h2 id="分析CNN内部在做什么：特征可视化"><a href="#分析CNN内部在做什么：特征可视化" class="headerlink" title="分析CNN内部在做什么：特征可视化"></a>分析CNN内部在做什么：特征可视化</h2><ul>
+<li><p><strong>可视化</strong>几种应用广泛的CNN中的<strong>第一层卷积核（filter）</strong>即通过反向传播梯度回传<strong>学习到的卷积核</strong>：可以看到所有filter基本上都显示出一些有向边图形，即filter在寻找图像中的有向边（<strong>通过内积及模板匹配</strong>）<br><img src="https://img-blog.csdnimg.cn/20200628155622566.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>对于分类CNN来说，或许两个同样类别的图像在像素级别天差地别，但是通过对于<strong>中后面层的特征图以及最后全连接层的特征向量</strong>查看可以得出，他们是非常类似的，也就是说CNN的中间层的<strong>特征激活值空间能够捕捉到一些高级的语义特征</strong>（注：中间层的卷积核filter没有什么可解释性）</p>
+</li>
+<li><p>CNN中高层次的特征图有<strong>更大的感受野</strong>，所以会抽取到<strong>更大的图像特征</strong>，比如在寻找人脸等等</p>
+</li>
 </ul>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p><img src="https://img-blog.csdnimg.cn/20200522174151835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="解法一：层序遍历判断是否完全二叉树"><a href="#解法一：层序遍历判断是否完全二叉树" class="headerlink" title="解法一：层序遍历判断是否完全二叉树"></a>解法一：层序遍历判断是否完全二叉树</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> father=<span class="number">-1</span>; <span class="comment">//作为判断这个结点是不是根节点的依据，当为-1即为根节点</span></span><br><span class="line">	<span class="keyword">int</span> leftchild=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> rightchild=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> order=<span class="number">1</span>; <span class="comment">//在二叉树中的编号，用来判断是否完全二叉树</span></span><br><span class="line">&#125;;</span><br><span class="line">node Nodes[N];</span><br><span class="line"><span class="keyword">int</span> maxorder=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> last; <span class="comment">//用来记录树中最后一个节点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">FindRoot</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(Nodes[i].father==<span class="number">-1</span>)</span><br><span class="line">			<span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;            </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONLINE_JUDGE     </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">	freopen(<span class="string">"/Users/ksh/Documents/PAT刷题代码/td.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">string</span> a, b;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b; <span class="comment">//这道题用cin输入会比用scanf输入舒服很多，不然还要用char数组读入数据，很麻烦</span></span><br><span class="line">		<span class="keyword">if</span>(a != <span class="string">"-"</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			Nodes[i].leftchild=stoi(a);</span><br><span class="line">			Nodes[stoi(a)].father=i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(b != <span class="string">"-"</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			Nodes[i].rightchild=stoi(b);</span><br><span class="line">			Nodes[stoi(b)].father=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> root=FindRoot(n);</span><br><span class="line">	<span class="comment">//下面是标准的层序遍历的模板</span></span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	q.push(root); </span><br><span class="line">	maxorder=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp=q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		last=tmp;</span><br><span class="line">		<span class="keyword">if</span>(Nodes[tmp].leftchild != <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			q.push(Nodes[tmp].leftchild);</span><br><span class="line">			Nodes[Nodes[tmp].leftchild].order=Nodes[tmp].order*<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(Nodes[tmp].order*<span class="number">2</span>&gt;maxorder) maxorder=Nodes[tmp].order*<span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(Nodes[tmp].rightchild != <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			q.push(Nodes[tmp].rightchild);</span><br><span class="line">			Nodes[Nodes[tmp].rightchild].order=Nodes[tmp].order*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(Nodes[tmp].order*<span class="number">2</span>+<span class="number">1</span>&gt;maxorder) maxorder=Nodes[tmp].order*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(maxorder!=n) <span class="built_in">printf</span>(<span class="string">"NO %d"</span>, root);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"YES %d"</span>, last);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二：深搜遍历"><a href="#解法二：深搜遍历" class="headerlink" title="解法二：深搜遍历"></a>解法二：深搜遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line"><span class="keyword">int</span> l, r;</span><br><span class="line">&#125;a[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> maxn = <span class="number">-1</span>, ans;</span><br><span class="line"><span class="comment">//对树进行深搜</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index &gt; maxn) &#123;</span><br><span class="line">        maxn = index; <span class="comment">//更新最大节点序号，用来判断是否完全二叉树，和上面的order参数设置目的一样</span></span><br><span class="line">ans = root; &#125; <span class="comment">//记录最后一个节点</span></span><br><span class="line">    <span class="keyword">if</span>(a[root].l != <span class="number">-1</span>) dfs(a[root].l, index * <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span>(a[root].r != <span class="number">-1</span>) dfs(a[root].r, index * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, root = <span class="number">0</span>, have[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> l, r;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        <span class="keyword">if</span> (l == <span class="string">"-"</span>) &#123;</span><br><span class="line">            a[i].l = <span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            a[i].l = stoi(l); <span class="comment">//直接字符串转整型的库函数</span></span><br><span class="line">            have[stoi(l)] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (r == <span class="string">"-"</span>) &#123;</span><br><span class="line">            a[i].r = <span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            a[i].r = stoi(r);</span><br><span class="line">            have[stoi(r)] = <span class="number">1</span>;</span><br><span class="line">&#125; &#125;</span><br><span class="line">    <span class="keyword">while</span> (have[root] != <span class="number">0</span>) root++;</span><br><span class="line">    dfs(root, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (maxn == n)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES "</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO "</span> &lt;&lt; root;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>这种方法思想更加巧妙一些，代码量要少一些，整体来说两种方法差不多。</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>两个想法都巧妙在利用类似数组统计下标的方法来判断是否是完全二叉树，当树中最大序号的节点下标为节点的个数时，说明必定是完全二叉树（这利用了左右节点下标分别是父节点下标的2倍以及2倍+1，当根节点从1开始时）。具体的实现上面两种因人而异。</p>
+<h2 id="DeepDream和风格迁移"><a href="#DeepDream和风格迁移" class="headerlink" title="DeepDream和风格迁移"></a>DeepDream和风格迁移</h2><ul>
+<li>DeepDream核心思想：在一幅基础的内容图像上，在某一个已经训练很好的分类网络中运行，计算其某一中间层特征值与训练好的此网络的特征值的L2或者L1范数，最小化这个值，最后反向回传更新输入图像的像素值，最后就会生成具有所选择的这一层特征的特点图像（如选择低层次特征的话就会有一些螺旋纹，而选择高层次可能就会生成一些动物纹理（若分类网络中有很多动物分类训练）），也就是根据分类CNN中间层的特征来重构图像<br><img src="https://img-blog.csdnimg.cn/20200628230919404.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200628231016406.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li><p>风格迁移过程中，用一些中间层特征图的Gram Matrix作为风格纹理的描述是合理的，因为它是二阶统计量（而不侧重于图像的空间结构特征），协方差二阶统计量同样可行，但是较比Gram矩阵，其计算量更大。<br><img src="https://img-blog.csdnimg.cn/20200628231314977.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>可以在一幅图像中结合DeepDream和风格迁移一起参与，也就是会有3个损失，内容损失，风格损失，以及DeepDream中间层特征损失。</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200628231200545.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
 
@@ -219,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">完全二叉树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -231,11 +245,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题//" class="article-tag-list-link color5">算法刷题</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题/PTA-树//" class="article-tag-list-link color1">PTA-树</a>
+        			<a href="/categories/深度学习/CS231n学习//" class="article-tag-list-link color4">CS231n学习</a>
         		</li>
       		
 		</ul>
@@ -290,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/22/PTA1110-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/28/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +318,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/22/PTA1130-%E6%A0%91%E7%9A%84%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          PTA1130：树的中缀表达式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/22/C++%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%88scanf%EF%BC%8Cprintf%EF%BC%8Ccin%EF%BC%8Ccout%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++中的输入输出</div>
+    <a href="/2020/06/27/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CS231n学习笔记（十一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -342,7 +347,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA1110-判断是否为完全二叉树"><span class="toc-number">1.</span> <span class="toc-text">PTA1110-判断是否为完全二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入输出样例"><span class="toc-number">1.2.</span> <span class="toc-text">输入输出样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法一：层序遍历判断是否完全二叉树"><span class="toc-number">1.3.</span> <span class="toc-text">解法一：层序遍历判断是否完全二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法二：深搜遍历"><span class="toc-number">1.4.</span> <span class="toc-text">解法二：深搜遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS231n学习笔记（十二）：特征可视化"><span class="toc-number">1.</span> <span class="toc-text">CS231n学习笔记（十二）：特征可视化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#上节课总结回顾"><span class="toc-number">1.1.</span> <span class="toc-text">上节课总结回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析CNN内部在做什么：特征可视化"><span class="toc-number">1.2.</span> <span class="toc-text">分析CNN内部在做什么：特征可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DeepDream和风格迁移"><span class="toc-number">1.3.</span> <span class="toc-text">DeepDream和风格迁移</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
