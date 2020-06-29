@@ -6,23 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PTA1130：树的中缀表达式 | Kris Hao的博客</title>
+  <title>CS231n学习笔记（十三） | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PTA1130-树的中缀表达式">
+  <meta name="description" content="CS231n学习笔记（十三）：生成式模型（无监督学习）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTA1130：树的中缀表达式">
-<meta property="og:url" content="http://yoursite.com/2020/05/22/PTA1130-%E6%A0%91%E7%9A%84%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+<meta property="og:title" content="CS231n学习笔记（十三）">
+<meta property="og:url" content="http://yoursite.com/2020/06/29/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="PTA1130-树的中缀表达式">
+<meta property="og:description" content="CS231n学习笔记（十三）：生成式模型（无监督学习）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522222330647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522222454702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-22T14:33:59.728Z">
-<meta property="article:modified_time" content="2020-05-22T14:36:09.806Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629132541182.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629132709125.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629132951335.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629133743960.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629133921732.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629135437274.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629135634102.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629135748897.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629140110662.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629140719900.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629140948993.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629142313645.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629142556873.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629143103657.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629143620726.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629143939248.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200629144029329.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020062914431575.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-29T06:43:37.132Z">
+<meta property="article:modified_time" content="2020-06-29T06:44:37.461Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="树的遍历，深度搜索">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200522222330647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200629132541182.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -169,20 +185,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PTA1130-树的中缀表达式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CS231n学习笔记（十三）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PTA1130：树的中缀表达式
+      CS231n学习笔记（十三）
     </h1>
   
 
         
-        <a href="/2020/05/22/PTA1130-%E6%A0%91%E7%9A%84%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-05-22T14:33:59.728Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+        <a href="/2020/06/29/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-06-29T06:43:37.132Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-29</time>
 </a>
         
         
@@ -196,15 +212,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PTA1130-树的中缀表达式"><a href="#PTA1130-树的中缀表达式" class="headerlink" title="PTA1130-树的中缀表达式"></a>PTA1130-树的中缀表达式</h1><a id="more"></a>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="https://img-blog.csdnimg.cn/20200522222330647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<ul>
-<li>题目大意：给一个二叉树，输出中缀表达式，且加上括号表示运算的优先级~</li>
+        <h1 id="CS231n学习笔记（十三）：生成式模型（无监督学习）"><a href="#CS231n学习笔记（十三）：生成式模型（无监督学习）" class="headerlink" title="CS231n学习笔记（十三）：生成式模型（无监督学习）"></a>CS231n学习笔记（十三）：生成式模型（无监督学习）</h1><a id="more"></a>
+<h2 id="有无监督学习对比"><a href="#有无监督学习对比" class="headerlink" title="有无监督学习对比"></a>有无监督学习对比</h2><ul>
+<li><p>有监督学习<br><img src="https://img-blog.csdnimg.cn/20200629132541182.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>无监督学习<br><img src="https://img-blog.csdnimg.cn/20200629132709125.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>对比<img src="https://img-blog.csdnimg.cn/20200629132951335.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
 </ul>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p><img src="https://img-blog.csdnimg.cn/20200522222454702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">30</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="built_in">string</span> val;</span><br><span class="line">	<span class="keyword">int</span> left=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> right=<span class="number">-1</span>;	</span><br><span class="line">&#125;Nodes[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;<span class="comment">//存储最后的结果字符串序列</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrder</span><span class="params">(<span class="keyword">int</span> root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Nodes[root].left==<span class="number">-1</span> &amp;&amp; Nodes[root].right==<span class="number">-1</span>)  <span class="comment">//不同于一般的中序遍历中开始判断条件为 root==NULL，这里为了正确加入括号，从左右子树开始判断，左右子树均为空，则为叶子节点</span></span><br><span class="line">	&#123;</span><br><span class="line">		res.push_back(Nodes[root].val); </span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	res.push_back(<span class="string">"("</span>);</span><br><span class="line">	<span class="keyword">if</span>(Nodes[root].left!=<span class="number">-1</span>) InOrder(Nodes[root].left);</span><br><span class="line">	res.push_back(Nodes[root].val); </span><br><span class="line">	<span class="keyword">if</span>(Nodes[root].right!=<span class="number">-1</span>) InOrder(Nodes[root].right);</span><br><span class="line">	res.push_back(<span class="string">")"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;            </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONLINE_JUDGE     </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">	freopen(<span class="string">"/Users/ksh/Documents/PAT刷题代码/td.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">bool</span> isroot[N];</span><br><span class="line">	fill(isroot, isroot+N, <span class="literal">true</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">string</span> st1, st2, st3;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;st1&gt;&gt;st2&gt;&gt;st3;</span><br><span class="line">		Nodes[i].val=st1;</span><br><span class="line">		Nodes[i].left=stoi(st2);</span><br><span class="line">		Nodes[i].right=stoi(st3);</span><br><span class="line">		<span class="keyword">if</span>(stoi(st2)!=<span class="number">-1</span>) isroot[stoi(st2)]=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span>(stoi(st3)!=<span class="number">-1</span>) isroot[stoi(st3)]=<span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> root;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(isroot[i]) root=i;</span><br><span class="line">	&#125;</span><br><span class="line">	InOrder(root);</span><br><span class="line">	<span class="keyword">if</span>(res.size()==<span class="number">1</span>) <span class="built_in">cout</span>&lt;&lt;res[<span class="number">0</span>]; <span class="comment">//对于只有一个节点的特殊情况的处理</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;res.size()<span class="number">-1</span>; i++)  <span class="comment">//若不止一个节点，则必然最外层左右有括号，题意是最外层的括号要去掉</span></span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;res[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里主要就是用到了树的深度优先搜索，类似于中序遍历，但由于需要正确的加入括号来表示优先级，所以需要对树的深度优先搜索（中序遍历）进行一些改动，dfs函数进入执行过程，先判断子树左右根节点的情况，用来作为括号正确加入的依据。</p>
+<h2 id="生成式模型（Generative-Models）"><a href="#生成式模型（Generative-Models）" class="headerlink" title="生成式模型（Generative Models）"></a>生成式模型（Generative Models）</h2><ul>
+<li>PixelRNN/CNN（显式密度估计）</li>
+<li>变分自编码器（Variational Autoencoder）（显式密度估计）</li>
+<li>GAN（隐式密度估计）</li>
+</ul>
+<h2 id="PixelRNN-CNN（利用神经网络显式的计算最大似然函数）"><a href="#PixelRNN-CNN（利用神经网络显式的计算最大似然函数）" class="headerlink" title="PixelRNN/CNN（利用神经网络显式的计算最大似然函数）"></a>PixelRNN/CNN（利用神经网络显式的计算最大似然函数）</h2><ul>
+<li>PixelRNN<br><img src="https://img-blog.csdnimg.cn/20200629133743960.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li><p>PixelCNN<img src="https://img-blog.csdnimg.cn/20200629133921732.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>pixelCNN训练要比pixelRNN快，因为在每一个像素位置，我们想要最大化我们已有的训练数据的似然。</p>
+</li>
+<li><p>测试过程，也就是根据一个像素生成一整张图片的过程都是非常慢的，因为要一个一个像素的生成，最终形成一幅完整图像</p>
+</li>
+<li><p>生成哪一种图片，就取决于第一个像素点的大小选取（图像其他所有像素的生成都将取决于它），以及训练数据图像。</p>
+</li>
+<li><p>缺点就是由于生成过程是序列化的，所以很慢</p>
+</li>
+</ul>
+<h2 id="变分自编码器（VAE）"><a href="#变分自编码器（VAE）" class="headerlink" title="变分自编码器（VAE）"></a>变分自编码器（VAE）</h2><ul>
+<li>自编码器：是一种利用<strong>无标签数据来学习低维特征表示</strong>的<strong>无监督方法</strong>，如下图，<em>没用用到外部标签</em><br><img src="https://img-blog.csdnimg.cn/20200629135437274.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200629135634102.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>利用自编码器<strong>学习到的特征</strong>可以<strong>初始化为一个监督学习分类网络</strong>，从而能够利用<strong>少量的数据</strong>就能够训练好一个分类器<br><img src="https://img-blog.csdnimg.cn/20200629135748897.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>变分自编码器（VAE）</p>
+</li>
+<li><p><strong><em>z</em></strong>为<strong>特征表示向量</strong>（也即隐变量：latent representation）<br><img src="https://img-blog.csdnimg.cn/20200629140110662.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200629140719900.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200629140948993.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="GAN（博弈论想法）"><a href="#GAN（博弈论想法）" class="headerlink" title="GAN（博弈论想法）"></a>GAN（博弈论想法）</h2><p><img src="https://img-blog.csdnimg.cn/20200629142313645.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200629142556873.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>为了让<strong>生成器损失函数在一开始梯度大</strong>（从而让开始优化更快），将优化函数<strong>修改为最大化max，从而转换为梯度上升</strong>求最大，<strong>改变梯度趋势，让其实优化更快</strong>，但是总的目的不变，都是让生成器最大化判别器判别的分数<br><img src="https://img-blog.csdnimg.cn/20200629143103657.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>GAN训练算法<br><img src="https://img-blog.csdnimg.cn/20200629143620726.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>利用GAN中的z初始采样特征，做一些有趣的事情<br><img src="https://img-blog.csdnimg.cn/20200629143939248.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200629144029329.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://img-blog.csdnimg.cn/2020062914431575.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
 
@@ -218,7 +279,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树的遍历，深度搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -230,11 +291,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题//" class="article-tag-list-link color5">算法刷题</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题/PTA-树//" class="article-tag-list-link color1">PTA-树</a>
+        			<a href="/categories/深度学习/CS231n学习//" class="article-tag-list-link color4">CS231n学习</a>
         		</li>
       		
 		</ul>
@@ -289,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/22/PTA1130-%E6%A0%91%E7%9A%84%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/29/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +364,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%95%B0%E7%BB%84/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          数组
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/22/PTA1110-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PTA1110：判断完全二叉树</div>
+    <a href="/2020/06/28/CS231n%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CS231n学习笔记（十二）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +393,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA1130-树的中缀表达式"><span class="toc-number">1.</span> <span class="toc-text">PTA1130-树的中缀表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入输出样例"><span class="toc-number">1.2.</span> <span class="toc-text">输入输出样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题代码"><span class="toc-number">1.3.</span> <span class="toc-text">解题代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS231n学习笔记（十三）：生成式模型（无监督学习）"><span class="toc-number">1.</span> <span class="toc-text">CS231n学习笔记（十三）：生成式模型（无监督学习）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#有无监督学习对比"><span class="toc-number">1.1.</span> <span class="toc-text">有无监督学习对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成式模型（Generative-Models）"><span class="toc-number">1.2.</span> <span class="toc-text">生成式模型（Generative Models）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PixelRNN-CNN（利用神经网络显式的计算最大似然函数）"><span class="toc-number">1.3.</span> <span class="toc-text">PixelRNN&#x2F;CNN（利用神经网络显式的计算最大似然函数）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变分自编码器（VAE）"><span class="toc-number">1.4.</span> <span class="toc-text">变分自编码器（VAE）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN（博弈论想法）"><span class="toc-number">1.5.</span> <span class="toc-text">GAN（博弈论想法）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
