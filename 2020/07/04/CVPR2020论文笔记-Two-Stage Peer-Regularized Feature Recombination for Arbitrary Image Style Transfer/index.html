@@ -6,18 +6,46 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: CVPR，2020 | Kris Hao的博客</title>
+  <title>CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kris Hao的博客">
-<meta property="og:url" content="http://yoursite.com/tags/CVPR%EF%BC%8C2020/index.html">
+  <meta name="description" content="CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer">
+<meta property="og:url" content="http://yoursite.com/2020/07/04/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Two-Stage%20Peer-Regularized%20Feature%20Recombination%20for%20Arbitrary%20Image%20Style%20Transfer/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704152649528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704152705222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020070415345958.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704154117483.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704154807815.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202007041601098.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704160516295.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704160813729.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704160852182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704162226863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704162900260.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704163159987.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704163322364.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704163941742.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704164157260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704181850706.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704181908394.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020070418200736.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704183235464.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704183423578.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704183438113.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704185328967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704185518945.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704185937173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704190211552.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-07-04T11:15:24.095Z">
+<meta property="article:modified_time" content="2020-07-04T11:18:12.007Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="技术记录">
+<meta property="article:tag" content="CVPR，2020，风格迁移">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200704152649528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -66,7 +94,7 @@
 		</nav>
 
 		<nav>
-			<a>总文章数 77</a>
+			<a>总文章数 78</a>
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -164,48 +192,97 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CVPR2020论文笔记-Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/20/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB%E6%96%B9%E5%90%91%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-20T07:23:18.860Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/20/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB%E6%96%B9%E5%90%91%EF%BC%88%E4%B8%80%EF%BC%89/">CVPR2020论文笔记-风格迁移方向（一）</a>
+    <h1 class="article-title" itemprop="name">
+      CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/04/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Two-Stage%20Peer-Regularized%20Feature%20Recombination%20for%20Arbitrary%20Image%20Style%20Transfer/" class="archive-article-date">
+  	<time datetime="2020-07-04T11:15:24.095Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
+</a>
+        
+        
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CVPR2020论文笔记：Two-Stage-Peer-Regularized-Feature-Recombination-for-Arbitrary-Image-Style-Transfer"><a href="#CVPR2020论文笔记：Two-Stage-Peer-Regularized-Feature-Recombination-for-Arbitrary-Image-Style-Transfer" class="headerlink" title="CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer"></a>CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer</h1><a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文介绍一种神经风格迁移模型，所提出方案即使在零样本设置下也可以产生高质量的图像，且在更改内容几何形状时具有更大的自由度。通过引入Two Stage Peer-Regularization（TSPR） Layer，图卷积层将潜空间中的风格和内容重新组合在一起。与绝大多数现有方法不同，模型不依赖于任何预训练网络来计算感知损失，且直接在潜在空间进行循环损失优化。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200704152649528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h2><ul>
+<li>提出了使用自定义的图卷积层，直接在隐空间（latent space）进行样式和内容的组合</li>
+<li>提出了一个新的组合损失，从而能够进行端到端的训练，并且无需任何预训练好的模型（如VGG）来进行损失计算</li>
+<li>通过度量学习（metric learning）构建出全局和局部结合以及内容和风格分离的隐空间</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>通过度量学习将风格和内容信息在隐空间中分离，使得Decoder中保留的风格信息量大大减少。此外，为了充分考虑绑定某种风格之后对于内容的几何结构变化，加入了一个两阶段的风格转换模块，第一阶段只进行风格转换，第二阶段再进行相应内容几何结构的修改</li>
+</ul>
+<ul>
+<li><p>整体架构图<br><img src="https://img-blog.csdnimg.cn/20200704152705222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>xi，xt，xf</strong>分别表示内容图，风格图，fake图像。zi表示由<strong>xi</strong>经过<strong>Encoder</strong>编码得到的<strong>latent code</strong>，同时<strong>(zi)c</strong>和<strong>(zi)s</strong>分别表示latent code中的内容部分和风格部分</p>
+</li>
+<li><p>两个latent code之间的距离函数f定义如下<br><img src="https://img-blog.csdnimg.cn/2020070415345958.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>Encoder</strong>：由几个下采样的卷积层和多重ResNet block组成，生成的latent code为z，由(z)c（包含物体、位置、大小等内容信息）和(z)s（包含层次细节、形状等风格信息）两部分组成，并且再对(z)s均等分为<img src="https://img-blog.csdnimg.cn/20200704154117483.png" alt="在这里插入图片描述"><br>glob可以理解为是对zs的一个进一步下采样的生成结果（通过一个小的子网络下采样），采样结果为对于每一个channel对应的feature map而言，下采样到一个值，也即zs^glob<br>为N维向量（假设有N个channel）</p>
+</li>
+<li><p><strong>辅助Decoder</strong>：它的唯一作用是用来训练Encoder模块，包含以下几个loss</p>
+</li>
+</ul>
+<p><strong>1</strong>. <strong>内容特征cycle loss</strong>（用来将latent code表示相同内容的zc聚合在一起）<br><img src="https://img-blog.csdnimg.cn/20200704154807815.png" alt="在这里插入图片描述"><br>第一项表示要让内容图code和风格图code经过TPFR模块融合后得到的迁移图的code和原始内容的code越接近越好<br>第二项表示内容图code和内容图code经过TPFR融合后的结果图code与原始内容图code越接近越好（这一项loss的目标是让Encoder得到的z能够将内容 latent code聚合为zc，在z的上半部分）<br><strong>2</strong>. <strong>度量（metric learning）学习loss</strong>（度量学习的目的是通过训练和学习，减小或限制同类样本之间的距离，同时增大不同类别样本之间的距离。<br>）<br><img src="https://img-blog.csdnimg.cn/202007041601098.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>第一项减小内容图样本之间的风格图的风格code之间的距离，同时增加内容图以及风格图之间的风格code的距离<br><strong>3</strong>.<strong>辅助Decoder的重构损失</strong><br><img src="https://img-blog.csdnimg.cn/20200704160516295.png" alt="在这里插入图片描述"><br><strong>4</strong>.<strong>latent cycle loss</strong>：保证输入的latent code和重构图像的latent code一致<br><img src="https://img-blog.csdnimg.cn/20200704160813729.png" alt="在这里插入图片描述"><br><strong>5</strong>.<strong>辅助Decoder总loss</strong><br><img src="https://img-blog.csdnimg.cn/20200704160852182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>下面实验提到选择了25作为λ的值进行训练</p>
+<ul>
+<li><strong>Main Decoder</strong>：其初始结构直接复制上面的<strong>辅助Decoder</strong>，其输入是TPFR的输出code，且训练这个Main Decoder时要固定Encoder不改变。有以下三个loss：</li>
+</ul>
+<p><strong>1</strong>.Decoder adversarial loss（对抗损失）<br><img src="https://img-blog.csdnimg.cn/20200704162226863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>目的就是要提高生成的图（fake）的判别分数C(xf)，其中C是判别器当生成的fake图和真实风格图的风格越像，那么分数就越高。<br><strong>2</strong>.transfer latent cycle loss：为了让风格化之后的图能够既保留内容图的latent code（zc部分）又能够保留风格图的latent code（zs部分）<br><img src="https://img-blog.csdnimg.cn/20200704162900260.png" alt="在这里插入图片描述"><br><strong>3</strong>.和训练辅助Decoder一样的重构损失<br><img src="https://img-blog.csdnimg.cn/20200704163159987.png" alt="在这里插入图片描述"><br><strong>4</strong>.总的Main Decoder损失<br><img src="https://img-blog.csdnimg.cn/20200704163322364.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><p><strong>判别器</strong>：判别器的输入是两个图片在channel方向的连接，当两个图片有同样的风格类别的话，那么判别风格最高为1，否则为0<br><img src="https://img-blog.csdnimg.cn/20200704163941742.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>Two-stage Peer-regularized Feature Recombination (TPFR)模块</strong><br><img src="https://img-blog.csdnimg.cn/20200704164157260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>TPFR模块的输入是<img src="https://img-blog.csdnimg.cn/20200704181850706.png" alt="在这里插入图片描述"><br>和<img src="https://img-blog.csdnimg.cn/20200704181908394.png" alt="在这里插入图片描述"><br>latent code zi或者zt均为HWxN维的，也就是N个channel，每一个channel都是列向量，每一个列向量长度均为HW=d维</p>
+</li>
+</ul>
+<p><strong>1</strong>：<strong>Style重组</strong><br>用欧式距离计算内容code部分的k近邻<br><img src="https://img-blog.csdnimg.cn/2020070418200736.png" alt="在这里插入图片描述"><br>输出的结果为<img src="https://img-blog.csdnimg.cn/20200704183235464.png" alt="在这里插入图片描述"><br>可以看出这一阶段zout的content部分的code是直接采用的输入的内容图的内容code，只对于zout的style 部分的code进行的合成转化。合成的公式为<br><img src="https://img-blog.csdnimg.cn/20200704183423578.png" alt="在这里插入图片描述"><br>其中<img src="https://img-blog.csdnimg.cn/20200704183438113.png" alt="在这里插入图片描述"><br>即引入了一个图注意力机制，基于内容图和风格图的latent code 的内容code部分进行k近邻计算（我的理解是计算对于内容图的latent code (zi)c中的每一个channel，都计算出了风格图的latent code (zt)c中K近邻的K个channel，即在风格图的latent code zt中那几个channel中的内容code同内容图当前遍历到的channel的内容code类似（表明某一种内容特征类似），那么就优先依次考虑将风格图latent code的这一个channel对应的style code加入更大注意力，即对于最终(zout)s有更大的影响，只考虑K近邻的K个channel的style code的影响）<br><img src="https://img-blog.csdnimg.cn/20200704185328967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>2</strong>：<strong>Content重组</strong><br>和上面Style重组过程完全一样，只是将Style 和Content部分交换计算而已</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><ul>
+<li><p>训练过程<br>通过总的如下损失<br><img src="https://img-blog.csdnimg.cn/20200704185518945.png" alt="在这里插入图片描述"><br>交替的对编码器，辅助解码器，主解码器以及判别器进行端到端的迭代优化训练</p>
+</li>
+<li><p>实验证明不仅对于已经训练集中见过的风格样式有很好的迁移效果，对于训练过程中从没见过的风格样式也有很好的迁移效果（Zero-shot）<br><img src="https://img-blog.csdnimg.cn/20200704185937173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>消融分析：分析了每一步操作对于结果的影响，即每次去除掉一种操作，看效果是否有所损伤<br><img src="https://img-blog.csdnimg.cn/20200704190211552.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本文提出了一种新型的风格迁移网络，不仅能够高效实现多种风格的迁移，还能够实现Zero-shot迁移（即在没有见过的风格中进行迁移），引入的辅助Decoder有效的防止了训练的退化失败。可以进行端到端的训练，而不需要依赖于现有的预训练好的模型（如VGG）来计算损失，因此解除了对于这些模型提取到的特征的可靠性的依赖。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CVPR，2020</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CVPR，2020，风格迁移</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,17 +299,120 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/04/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Two-Stage%20Peer-Regularized%20Feature%20Recombination%20for%20Arbitrary%20Image%20Style%20Transfer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/03/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">统计学习方法笔记（十三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CVPR2020论文笔记：Two-Stage-Peer-Regularized-Feature-Recombination-for-Arbitrary-Image-Style-Transfer"><span class="toc-number">1.</span> <span class="toc-text">CVPR2020论文笔记：Two-Stage Peer-Regularized Feature Recombination for Arbitrary Image Style Transfer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要贡献"><span class="toc-number">1.2.</span> <span class="toc-text">主要贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验"><span class="toc-number">1.4.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">1.5.</span> <span class="toc-text">结论</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  
+
+
 
 
           </div>
@@ -258,9 +438,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -328,19 +508,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">终端，pycharm</a>
+                <a href="javascript:void(0)" class="js-tag color2">C++库函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CVPR，2020</a>
+                <a href="javascript:void(0)" class="js-tag color5">CVPR，2020，风格迁移</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">终端，pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -356,6 +536,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">动态规划，最长不下降子序列</a>
               </li>
              
@@ -364,19 +548,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">完全二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color1">完全二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的遍历</a>
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -388,23 +568,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">贪心算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">欧拉图，并查集</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">树的遍历，深度搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">贪心算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">无向完全图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">旅行商环路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -420,7 +592,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C++中printf</a>
+                <a href="javascript:void(0)" class="js-tag color1">无向完全图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -428,15 +600,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">旅行商环路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C++中printf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">散列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,11 +616,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color4">前缀树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前缀树</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +636,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法引言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,23 +664,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +680,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">机器学习，统计学习方法</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">优先队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">机器学习，统计学习方法</a>
               </li>
             
             <div class="clearfix"></div>
