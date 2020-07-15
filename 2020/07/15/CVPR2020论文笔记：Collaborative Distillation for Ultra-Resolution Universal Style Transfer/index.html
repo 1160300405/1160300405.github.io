@@ -6,18 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Kris Hao的博客</title>
+  <title>CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer | Kris Hao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kris Hao的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/9/index.html">
+  <meta name="description" content="CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9ACollaborative%20Distillation%20for%20Ultra-Resolution%20Universal%20Style%20Transfer/index.html">
 <meta property="og:site_name" content="Kris Hao的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715213925925.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715214159842.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715214235864.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715214828727.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715215006735.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715215437770.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715215624156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715215823583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200715220011406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-07-15T14:00:36.359Z">
+<meta property="article:modified_time" content="2020-07-15T14:01:48.448Z">
 <meta property="article:author" content="Kris Hao">
-<meta property="article:tag" content="技术记录">
+<meta property="article:tag" content="CVPR，2020，风格迁移">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200715213925925.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Kris Hao的博客" type="application/atom+xml">
   
@@ -164,128 +176,208 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/20/PTA1043%EF%BC%9ABST%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88%E5%B7%B2%E7%9F%A5%E5%85%88%E4%B8%AD%EF%BC%8C%E6%B1%82%E5%90%8E%E5%BA%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-20T14:33:16.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/20/PTA1043%EF%BC%9ABST%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88%E5%B7%B2%E7%9F%A5%E5%85%88%E4%B8%AD%EF%BC%8C%E6%B1%82%E5%90%8E%E5%BA%8F%EF%BC%89/">PTA1043：判断是否是二叉搜索树（BST）或其镜像</a>
+    <h1 class="article-title" itemprop="name">
+      CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/15/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9ACollaborative%20Distillation%20for%20Ultra-Resolution%20Universal%20Style%20Transfer/" class="archive-article-date">
+  	<time datetime="2020-07-15T14:00:36.359Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        
+        
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CVPR2020论文笔记：Collaborative-Distillation-for-Ultra-Resolution-Universal-Style-Transfer"><a href="#CVPR2020论文笔记：Collaborative-Distillation-for-Ultra-Resolution-Universal-Style-Transfer" class="headerlink" title="CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer"></a>CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer</h1><a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文提出了一种在处理全局风格迁移过程中压缩Encoder参数的方法，具体提出了一种协同蒸馏的办法来压缩Encoder网络</p>
+<h2 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h2><ul>
+<li>提出了一种新的全局风格迁移的知识提取方法。认为编码器与解码器之间的独占协作一一对应关系是一种新的知识。这种想法可以应用于不同的协作关系。</li>
+<li>解决了知识蒸馏中学生和教师之间的特征维数不匹配问题</li>
+<li>大量的实验表明，在不同的框架下（如WCT，AdaIN以及Gatys），此方法能够在减少15.5倍的参数值的条件下，甚至能够得到更好的视觉效果。特别是在WCT上，压缩模型使我们第一次在单个12GB GPU上进行超分辨率(4000万像素)的全局风格迁移。</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><img src="https://img-blog.csdnimg.cn/20200715213925925.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>Decoder是用的已经训练好的固定的，重点是训练一个Encoder的替代品，SEncoder（一个小的Encoder）从而达到压缩的目的</p>
+</li>
+<li><p>基于WCT训练过程中采用的协同损失Lcollab为（其中的k表示对应VGG网络中的5个卷积层，加号前面是重构图像的像素级别的损失，后面是重构图像的特征级别的损失）<img src="https://img-blog.csdnimg.cn/20200715214159842.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>基于AdaIN训练过程中采用的Lcollab为<img src="https://img-blog.csdnimg.cn/20200715214235864.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>协同蒸馏压缩模型的核心是上图的c部分，即压缩Encoder中的参数（减少每一层特征图的channel数，从而减少卷积层中的filter个数，从而减少参数），也即让每一个原本CxHW的特征图F压缩为C’xHW（C‘&lt;C）的特征图F’。原理是认为原来的特征图F含有很多冗余特征，可以看做是一些特征基向量在低维度上的线性组合（转换），线性转换的矩阵为Q，即<img src="https://img-blog.csdnimg.cn/20200715214828727.png" alt="在这里插入图片描述"><br>其中转换矩阵通过一个不含非线性激活函数的全连接层进行训练，训练过程中的损失为<br><img src="https://img-blog.csdnimg.cn/20200715215006735.png" alt="在这里插入图片描述"><br>并且对于SEncoder中的每一个（5层中的每一层）都进行一个这样的训练，即对于每一层都训练一个对应的转换矩阵Q，这样进行损失优化过程中能够打破由于单单一个Q中极少的参数导致的训练瓶颈，当这些分支插入到网络的中间层时，它们会给学生注入更多的梯度，从而促进他们的学习，特别是对于梯度容易消失的深度网络。并且在神经风格转换中，图像的风格通常由许多中间层的特征决定。因此，对这些层次进行更多的监督是必要的，以确保它们不会失去太多的风格描述能力，以便在随后的风格转换中使用。</p>
+</li>
+<li><p>所以最后，训练SEncoder的总的训练过程损失函数为<img src="https://img-blog.csdnimg.cn/20200715215437770.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><ul>
+<li>能够在大量压缩参数同时，保证很高的质量<img src="https://img-blog.csdnimg.cn/20200715215624156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>若对于Decoder模型进行蒸馏压缩的话，效果很差，并且对于分类效果更好的网络（准确率更高的网络），对于风格迁移效果并不一定更好<img src="https://img-blog.csdnimg.cn/20200715215823583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>原本非常复杂的模型，原始VGG网络，参数很大，会导致过拟合，从而将风格图中的一些噪声也嵌入到内容图中，从而反倒是没有这种压缩模型对于风格迁移的效果好<img src="https://img-blog.csdnimg.cn/20200715220011406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmdzaGFvaGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树的遍历</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CVPR，2020，风格迁移</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题//" class="article-tag-list-link color5">算法刷题</a>
+        			<a href="/categories/CVPR论文//" class="article-tag-list-link color2">CVPR论文</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法刷题/PTA-树//" class="article-tag-list-link color1">PTA-树</a>
+        			<a href="/categories/CVPR论文/2020//" class="article-tag-list-link color5">2020</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/15/CVPR2020%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9ACollaborative%20Distillation%20for%20Ultra-Resolution%20Universal%20Style%20Transfer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/C++%E5%88%B7%E9%A2%98%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-17T06:59:33.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/07/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">统计学习方法笔记（十六）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/C++%E5%88%B7%E9%A2%98%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93/">C++常用库函数的总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C++库函数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CVPR2020论文笔记：Collaborative-Distillation-for-Ultra-Resolution-Universal-Style-Transfer"><span class="toc-number">1.</span> <span class="toc-text">CVPR2020论文笔记：Collaborative Distillation for Ultra-Resolution Universal Style Transfer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要贡献"><span class="toc-number">1.2.</span> <span class="toc-text">主要贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果"><span class="toc-number">1.4.</span> <span class="toc-text">实验结果</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="page-number current">9</span>
-    </nav>
   
+
+  
+
+  
+  
+
+
 
 
           </div>
@@ -311,8 +403,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
